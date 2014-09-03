@@ -1,0 +1,29 @@
+﻿Build started 27/03/2014 11:48:02.
+     1>Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS 2014\Estrategia\Estrategia\Estrategia.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Estrategia.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs 2014\estrategia\estrategia\camponavegacao.cpp(84): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs 2014\estrategia\estrategia\main.cpp(66): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS 2014\Estrategia\Debug\Estrategia.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS 2014\Estrategia\Debug\Estrategia.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS 2014\Estrategia\Debug\Estrategia.lib" /MACHINE:X86 Debug\Bell.obj
+         Debug\DeFuzzy.obj
+         Debug\Estrategia.obj
+         Debug\FuzzyFunction.obj
+         Debug\FuzzyGS.obj
+         Debug\FuzzyMT.obj
+         Debug\Gauss.obj
+         Debug\GSRules.obj
+         Debug\main.obj
+         Debug\MTRules.obj
+         Debug\Objeto.obj
+         Debug\Point.obj
+         Debug\stdafx.obj
+         Debug\TimerCounter.obj
+         Debug\Trapez.obj
+         Estrategia.vcxproj -> C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS 2014\Estrategia\Debug\Estrategia.exe
+     1>Done Building Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS 2014\Estrategia\Estrategia\Estrategia.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.29
