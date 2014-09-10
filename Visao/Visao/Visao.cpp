@@ -5,7 +5,6 @@ __int64 CounterStart = 0;
 // -----------------------------
 
 
-
 using namespace std;
 
 using namespace cv;
@@ -57,9 +56,7 @@ Visao::Visao(Objeto **objetos){
 
 }
 
-
-Visao::~Visao(void){
-}
+Visao::~Visao(void){}
 
 void Visao::iniciar(){
 
@@ -68,24 +65,24 @@ void Visao::iniciar(){
 	criarTags(frame);
 	criarTrackbars();
 	
-	aH0 = this->tag[0]->aH; aS0 = this->tag[0]->aS; aV0 = this->tag[0]->aV;
-	aH1 = this->tag[1]->aH; aS1 = this->tag[1]->aS; aV1 = this->tag[1]->aV;
-	aH2 = this->tag[2]->aH; aS2 = this->tag[2]->aS; aV2 = this->tag[2]->aV;
-	aH3 = this->tag[3]->aH; aS3 = this->tag[3]->aS; aV3 = this->tag[3]->aV;
-	aH4 = this->tag[4]->aH; aS4 = this->tag[4]->aS; aV4 = this->tag[4]->aV;
-	aH5 = this->tag[5]->aH; aS5 = this->tag[5]->aS; aV5 = this->tag[5]->aV;
+	aH0		= this->tag[0]->aH; aS0 = this->tag[0]->aS; aV0 = this->tag[0]->aV;
+	aH1		= this->tag[1]->aH; aS1 = this->tag[1]->aS; aV1 = this->tag[1]->aV;
+	aH2		= this->tag[2]->aH; aS2 = this->tag[2]->aS; aV2 = this->tag[2]->aV;
+	aH3		= this->tag[3]->aH; aS3 = this->tag[3]->aS; aV3 = this->tag[3]->aV;
+	aH4		= this->tag[4]->aH; aS4 = this->tag[4]->aS; aV4 = this->tag[4]->aV;
+	aH5		= this->tag[5]->aH; aS5 = this->tag[5]->aS; aV5 = this->tag[5]->aV;
 
-	data0 = tag[0]->threshold.data;
-	data1 = tag[1]->threshold.data;
-	data2 = tag[2]->threshold.data;
-	data3 = tag[3]->threshold.data;
-	data4 = tag[4]->threshold.data;
-	data5 = tag[5]->threshold.data;
+	data0	= tag[0]->threshold.data;
+	data1	= tag[1]->threshold.data;
+	data2	= tag[2]->threshold.data;
+	data3	= tag[3]->threshold.data;
+	data4	= tag[4]->threshold.data;
+	data5	= tag[5]->threshold.data;
+
 	CLEyeCameraInstance cam;
-	cam = CLEyeCreateCamera(CLEyeGetCameraUUID(0),CLEYE_COLOR_PROCESSED ,CLEYE_VGA,75);
-	cout << "Here" << endl; 
-	
+	cam = CLEyeCreateCamera(CLEyeGetCameraUUID(0),CLEYE_COLOR_PROCESSED ,CLEYE_VGA,75);	
 	CLEyeCameraStart(cam);
+
 	IplImage *pCapImage;
 	pCapImage = cvCreateImage(cvSize(FRAME_WIDTH, FRAME_HEIGHT), IPL_DEPTH_8U, 4);
 	PBYTE pCapBuffer = NULL; 
@@ -98,9 +95,11 @@ void Visao::iniciar(){
 		threads[i] = thread(trackingTag,tag[i], this);
 
 	while(1){
+
+		StartCounter();
+
 		CLEyeCameraGetFrame(cam,pCapBuffer,0);
-		imshow("Video", frame);
-		
+		imshow("Video", frame);		
 		
 		if(AUTO_GAIN){
 			CLEyeSetCameraParameter(cam, CLEYE_AUTO_GAIN, AUTO_GAIN);
@@ -108,6 +107,7 @@ void Visao::iniciar(){
 			CLEyeSetCameraParameter(cam, CLEYE_AUTO_GAIN, AUTO_GAIN);
 			CLEyeSetCameraParameter(cam, CLEYE_GAIN, GAIN);
 		}
+
 		if(AUTO_EXPOSURE){
 			CLEyeSetCameraParameter(cam, CLEYE_AUTO_EXPOSURE, AUTO_EXPOSURE);
 		}else{
@@ -132,22 +132,26 @@ void Visao::iniciar(){
 		CLEyeSetCameraParameter(cam, CLEYE_LENSCORRECTION3, LENSCORRECTION3-500);
 		CLEyeSetCameraParameter(cam, CLEYE_LENSBRIGHTNESS, LENSBRIGHTNESS-500);
 
-
 		char c = waitKey(1);
-		if(c == 'z' || c == 'Z')
+		if(c == QUIT_KEY)
 			break;
+
+		if(DISP_FPS)
+			cout << 1000/GetCounter() << " FPS" << endl;
+
 	}
 	while(1){
+
+		StartCounter();
 			
 		CLEyeCameraGetFrame(cam,pCapBuffer);
 		// Determina o HSV da imagem.]
 		
-		double t1 = getTickCount();StartCounter();
 		medianBlur(frame,frame,3);
 		cvtColor(frame,HSV,COLOR_BGR2HSV);
+
 		// Cálculo do threshold da imagem
 		inRangeThreshold(HSV);
-
 		
 		// Tracking - busca a posição de uma cor na imagem.
 		iniciarTracking();
@@ -155,16 +159,22 @@ void Visao::iniciar(){
 		setPosicoesObjetos();
 		// Verifica as teclas apertadas e caso especificado, inicia o modo de calibração.
 		eventoCalibrar();
-		//
-		//cout<<"Tempo: "<<1000*(getTickCount()-t1)/getTickFrequency()<<" , "<<GetCounter()<<endl;
+
+		char c = waitKey(1);
+		if(c == QUIT_KEY)
+			break;		
+
+		if(DISP_FPS)
+			cout << 1000/GetCounter() << " FPS" << endl;
 		
 	}
 
-	//Para as threads de tracking
+	// Para as threads de tracking
 	break_thread = true;
 	trackingConditionVar.notify_all();
 
 	for (auto& th : threads) th.join();
+	cout << "HERE" << endl; 
 
 }
 
@@ -340,29 +350,25 @@ void Visao::inRangeThreshold(Mat src){
 			int V = srcData[e3c + 2];
 
 
-			if(aH0[H] && aS0[S] && aV0[V]){
+			if(aH0[H] && aS0[S] && aV0[V])
 				data0[ec] = 255;
-			}
+			
 
-			if(aH1[H] && aS1[S] && aV1[V]){
+			if(aH1[H] && aS1[S] && aV1[V])
 				data1[ec] = 255;
-			}
 
-			if(aH2[H] && aS2[S] && aV2[V]){
+			if(aH2[H] && aS2[S] && aV2[V])
 				data2[ec] = 255;
-			}
 
-			if(aH3[H] && aS3[S] && aV3[V]){
+			if(aH3[H] && aS3[S] && aV3[V])
 				data3[ec] = 255;
-			}
 
-			if(aH4[H] && aS4[S] && aV4[V]){
+			if(aH4[H] && aS4[S] && aV4[V])
 				data4[ec] = 255;
-			}
 
-			if(aH5[H] && aS5[S] && aV5[V]){
+			if(aH5[H] && aS5[S] && aV5[V])
 				data5[ec] = 255;
-			}
+
 			ec++;
 		}
 	}
@@ -453,8 +459,6 @@ void Visao::filtroMedianaBackProject(int numeroVizinhos, Tag*tag){
 	}
 
 }
-
-
 
 void Visao::iniciarTracking(){
 
@@ -725,12 +729,9 @@ void Visao::desenharMarcacoes(){
 		}
 
 	}
-
-
-
+	
 	float scaleX = (campoBottom.x - campoTop.x)/(COMPRIMENTO_CAMPO+2*BORDA_CAMPO);
 	float scaleY = (campoBottom.y - campoTop.y)/LARGURA_CAMPO;
-
 
 	//Desenha os jogadores
 	for(int i=0; i<3; i++){
@@ -740,8 +741,6 @@ void Visao::desenharMarcacoes(){
 		line(frame, posicao, Point(posicao.x+deltaX, posicao.y+deltaY), Scalar(255, 255, 255), 2, 8, 0);
 		circle(frame, posicao, 14, Scalar(255, 255, 255), 1, 8, 0);
 	}
-
-
 
 }
 
@@ -754,11 +753,12 @@ void Visao::calibrarTamanhoImagem(){
 	line(frame, Point(campoBottom.x, 0), Point(campoBottom.x, FRAME_HEIGHT), Scalar(255, 255, 255), 1, 1, 0);
 }
 
-
-
 void Visao::StartCounter(){
+
     LARGE_INTEGER li;
+
     if(!QueryPerformanceFrequency(&li))
+
 	cout << "QueryPerformanceFrequency failed!\n";
 
     PCFreq = double(li.QuadPart)/1000.0;
@@ -766,6 +766,7 @@ void Visao::StartCounter(){
     QueryPerformanceCounter(&li);
     CounterStart = li.QuadPart;
 }
+
 double Visao::GetCounter(){
     LARGE_INTEGER li;
     QueryPerformanceCounter(&li);

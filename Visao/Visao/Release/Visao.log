@@ -1,4 +1,4 @@
-﻿Build started 10/09/2014 15:21:55.
+﻿Build started 10/09/2014 17:45:58.
      1>Project "C:\GIT\PMEC_VS\Visao\Visao\Visao.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Include" /IC:\opencv248\opencv\build\include\opencv /IC:\opencv248\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Bola.cpp ControladorPID.cpp EEGoalKeeper.cpp EstrategiaGoleiro.cpp InterfaceGrafica.cpp main.cpp Objeto.cpp Point.cpp Robo.cpp SerialW.cpp stdafx.cpp Tag.cpp TimerCounter.cpp Visao.cpp
@@ -45,27 +45,27 @@
      1>EstrategiaGoleiro.cpp(114): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          InterfaceGrafica.cpp
      1>c:\git\pmec_vs\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
-     1>InterfaceGrafica.cpp(30): warning C4552: '<' : operator has no effect; expected operator with side-effect
-     1>InterfaceGrafica.cpp(87): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>InterfaceGrafica.cpp(88): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>InterfaceGrafica.cpp(92): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>InterfaceGrafica.cpp(96): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>InterfaceGrafica.cpp(164): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>InterfaceGrafica.cpp(165): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>InterfaceGrafica.cpp(180): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-     1>InterfaceGrafica.cpp(183): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>InterfaceGrafica.cpp(184): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>InterfaceGrafica.cpp(188): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>InterfaceGrafica.cpp(28): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>InterfaceGrafica.cpp(84): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>InterfaceGrafica.cpp(85): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>InterfaceGrafica.cpp(89): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>InterfaceGrafica.cpp(93): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>InterfaceGrafica.cpp(161): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>InterfaceGrafica.cpp(162): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>InterfaceGrafica.cpp(177): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>InterfaceGrafica.cpp(180): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>InterfaceGrafica.cpp(181): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>InterfaceGrafica.cpp(185): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
          main.cpp
      1>c:\opencv248\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
      1>c:\git\pmec_vs\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
-     1>main.cpp(53): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+     1>main.cpp(77): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(133) : see declaration of 'kbhit'
-     1>main.cpp(54): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+     1>main.cpp(78): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(131) : see declaration of 'getch'
-     1>main.cpp(110): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(111): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(134): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(135): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
          Objeto.cpp
      1>c:\git\pmec_vs\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
          Point.cpp
@@ -87,46 +87,25 @@
      1>c:\opencv248\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
      1>c:\git\pmec_vs\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
-     1>Visao.cpp(145): warning C4244: 'initializing' : conversion from 'int64' to 'double', possible loss of data
-     1>Visao.cpp(194): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(204): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
-     1>Visao.cpp(195): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(205): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
-     1>Visao.cpp(201): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(211): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
-     1>Visao.cpp(230): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(240): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(231): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(241): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(232): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(242): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(233): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(243): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(234): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(244): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(235): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(245): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(236): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(281): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(282): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(283): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(284): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(285): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(286): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(287): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(288): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(289): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(290): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>Visao.cpp(246): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
      1>Visao.cpp(291): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
@@ -136,30 +115,50 @@
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
      1>Visao.cpp(294): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
-     1>Visao.cpp(328): warning C4101: 'H' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'min' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'S' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'V' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'B' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'R' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'delta' : unreferenced local variable
-     1>Visao.cpp(328): warning C4101: 'G' : unreferenced local variable
-     1>Visao.cpp(401): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Visao.cpp(402): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>Visao.cpp(403): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>Visao.cpp(427): warning C4018: '<' : signed/unsigned mismatch
-     1>Visao.cpp(501): warning C4018: '<' : signed/unsigned mismatch
-     1>Visao.cpp(511): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>Visao.cpp(512): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>Visao.cpp(556): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>Visao.cpp(558): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>Visao.cpp(564): warning C4018: '<' : signed/unsigned mismatch
-     1>Visao.cpp(583): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>Visao.cpp(592): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>Visao.cpp(722): warning C4018: '<' : signed/unsigned mismatch
-     1>Visao.cpp(723): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>Visao.cpp(737): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>Visao.cpp(740): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(295): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(296): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(297): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(298): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(299): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(300): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(301): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(302): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(303): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(304): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(338): warning C4101: 'H' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'min' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'S' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'V' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'B' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'R' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'delta' : unreferenced local variable
+     1>Visao.cpp(338): warning C4101: 'G' : unreferenced local variable
+     1>Visao.cpp(407): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Visao.cpp(408): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Visao.cpp(409): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Visao.cpp(433): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(505): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(515): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(516): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(560): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(562): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(568): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(587): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(596): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(726): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(727): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(738): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(741): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\GIT\PMEC_VS\Visao\Release\Visao.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv248\opencv\build\x86\vc11\lib opencv_core248.lib opencv_imgproc248.lib opencv_highgui248.lib opencv_ml248.lib opencv_video248.lib opencv_features2d248.lib opencv_calib3d248.lib opencv_objdetect248.lib opencv_contrib248.lib opencv_legacy248.lib opencv_flann248.lib "C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Lib\CLEyeMulticam.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\GIT\PMEC_VS\Visao\Release\Visao.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\GIT\PMEC_VS\Visao\Release\Visao.lib" /MACHINE:X86 /SAFESEH Release\Bola.obj
          Release\ControladorPID.obj
@@ -182,4 +181,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.93
+Time Elapsed 00:00:08.16

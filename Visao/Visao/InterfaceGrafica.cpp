@@ -1,6 +1,5 @@
 #include "InterfaceGrafica.h"
 
-
 #define PI 3.14159265
 #define COMPRIMENTO_CAMPO 148 //cm
 #define LARGURA_CAMPO 127 //cm
@@ -18,8 +17,7 @@ const int FRAME_WIDTH = 640;
 const int FRAME_HEIGHT = 480;
 const float scale = FRAME_HEIGHT/(LARGURA_CAMPO); //pixels por cm
 
-InterfaceGrafica::InterfaceGrafica(Objeto** objetos)
-{
+InterfaceGrafica::InterfaceGrafica(Objeto** objetos){
 	this->objetos = objetos;
 	Objeto* ball = this->objetos[3];
 	pt::Point ballPosition = ball->posicao;
@@ -33,9 +31,7 @@ InterfaceGrafica::InterfaceGrafica(Objeto** objetos)
 }
 
 
-InterfaceGrafica::~InterfaceGrafica(void)
-{
-}
+InterfaceGrafica::~InterfaceGrafica(void){}
 
 void InterfaceGrafica::iniciar(void){
 	while(1){
@@ -49,6 +45,7 @@ void InterfaceGrafica::iniciar(void){
 		waitKey(10);
 	}
 }
+
 void InterfaceGrafica::desenharCampo(Mat frame){
 	
 	
