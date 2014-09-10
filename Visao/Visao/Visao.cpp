@@ -174,7 +174,6 @@ void Visao::iniciar(){
 	trackingConditionVar.notify_all();
 
 	for (auto& th : threads) th.join();
-	cout << "HERE" << endl; 
 
 }
 

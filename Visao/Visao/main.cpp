@@ -1,6 +1,7 @@
 //#define _CRT_SECURE_NO_WARNINGS
 #include "Visao.h"
 #include <thread>
+#include <atomic>
 #include "InterfaceGrafica.h"
 #include "EEGoalKeeper.h"
 #include "stdafx.h"
@@ -10,9 +11,9 @@
 #include "EstrategiaGoleiro.h"
 #include "Robo.h"
 
-
 double pcFreq = 0.0;
 __int64 counterstart = 0;
+atomic<bool> quit (false);
 
 static Objeto** objetos;
 
@@ -23,9 +24,12 @@ void interfaceGrafica();
 void estrategiaGoleiro();
 
 int main(int argc, char* argv[]){
-
+	quit = false;
 	objetos = new Objeto*[7];
 	controladores = new ControladorPID*[3];
+	thread threads[2];
+	Visao *visao = NULL;
+
 	for(int i=0;i<7;i++){
 		if(i!=3){
 			objetos[i] = new Robo(i);
@@ -35,10 +39,15 @@ int main(int argc, char* argv[]){
 			objetos[i] = new Bola();
 	}
 
-	Visao *visao = new Visao(objetos);
-	thread interfaceGrafica(interfaceGrafica);
-	//thread estrategiaGoleiro(estrategiaGoleiro);
+	visao = new Visao(objetos);
+
+	threads[0] = thread(interfaceGrafica);
+	threads[1] = thread(estrategiaGoleiro);
 	visao->iniciar(); 
+
+	cout << "Antes" << endl; 
+	for (auto& th : threads) th.join();
+	cout << "Depois" << endl; 
 
 	return 0;
 }

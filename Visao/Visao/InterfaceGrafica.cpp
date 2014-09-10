@@ -33,7 +33,7 @@ InterfaceGrafica::InterfaceGrafica(Objeto** objetos){
 
 InterfaceGrafica::~InterfaceGrafica(void){}
 
-void InterfaceGrafica::iniciar(void){
+void InterfaceGrafica::iniciar(){
 	while(1){
 		Mat frame(FRAME_HEIGHT, FRAME_WIDTH, CV_8UC3, Scalar(0,0,0));
 		

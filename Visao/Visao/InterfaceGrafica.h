@@ -2,6 +2,7 @@
 
 #include <opencv\cv.h>
 #include <opencv\highgui.h>
+#include <atomic>
 #include "Objeto.h"
 
 using namespace cv;
@@ -9,7 +10,7 @@ class InterfaceGrafica{
 	public:
 		InterfaceGrafica(Objeto** objetos);
 		~InterfaceGrafica(void);
-		void iniciar(void);
+		void iniciar();
 	private:
 		Objeto **objetos;
 		vector<pt::Point> *lastBallPositions;
