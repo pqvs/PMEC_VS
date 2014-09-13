@@ -1,37 +1,5 @@
-﻿Build started 10/09/2014 18:24:09.
-     1>Project "C:\GIT\PMEC_VS\Visao\Visao\Visao.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Include" /IC:\opencv248\opencv\build\include\opencv /IC:\opencv248\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\opencv248\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
-     1>c:\git\pmec_vs\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
-     1>main.cpp(87): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(133) : see declaration of 'kbhit'
-     1>main.cpp(88): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(131) : see declaration of 'getch'
-     1>main.cpp(144): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(145): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\GIT\PMEC_VS\Visao\Release\Visao.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv248\opencv\build\x86\vc11\lib opencv_core248.lib opencv_imgproc248.lib opencv_highgui248.lib opencv_ml248.lib opencv_video248.lib opencv_features2d248.lib opencv_calib3d248.lib opencv_objdetect248.lib opencv_contrib248.lib opencv_legacy248.lib opencv_flann248.lib "C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Lib\CLEyeMulticam.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\GIT\PMEC_VS\Visao\Release\Visao.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\GIT\PMEC_VS\Visao\Release\Visao.lib" /MACHINE:X86 /SAFESEH Release\Bola.obj
-         Release\ControladorPID.obj
-         Release\EEGoalKeeper.obj
-         Release\EstrategiaGoleiro.obj
-         Release\InterfaceGrafica.obj
-         Release\main.obj
-         Release\Objeto.obj
-         Release\Point.obj
-         Release\Robo.obj
-         Release\SerialW.obj
-         Release\stdafx.obj
-         Release\Tag.obj
-         Release\TimerCounter.obj
-         Release\Visao.obj
-         Generating code
-         Finished generating code
-         Visao.vcxproj -> C:\GIT\PMEC_VS\Visao\Release\Visao.exe
-     1>Done Building Project "C:\GIT\PMEC_VS\Visao\Visao\Visao.vcxproj" (Build target(s)).
+﻿Build started 13/09/2014 09:51:56.
 
 Build succeeded.
 
-Time Elapsed 00:00:03.00
+Time Elapsed 00:00:00.01
