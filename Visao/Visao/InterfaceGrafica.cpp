@@ -11,11 +11,9 @@
 #define TAMANHO_HISTORICO 20 //u
 #define TEMPO_FRAME 13 // ms
 
-using namespace std;
-
 const int FRAME_WIDTH = 640;
 const int FRAME_HEIGHT = 480;
-const float scale = FRAME_HEIGHT/(LARGURA_CAMPO); //pixels por cm
+const double scale = FRAME_HEIGHT/(LARGURA_CAMPO); //pixels por cm
 
 InterfaceGrafica::InterfaceGrafica(Objeto** objetos){
 	this->objetos = objetos;
@@ -33,8 +31,8 @@ InterfaceGrafica::InterfaceGrafica(Objeto** objetos){
 
 InterfaceGrafica::~InterfaceGrafica(void){}
 
-void InterfaceGrafica::iniciar(){
-	while(1){
+void InterfaceGrafica::iniciar(atomic<bool>& quit){
+	while(quit.load() == false){
 		Mat frame(FRAME_HEIGHT, FRAME_WIDTH, CV_8UC3, Scalar(0,0,0));
 		
 		desenharCampo(frame); 
@@ -75,12 +73,12 @@ void InterfaceGrafica::desenharCampo(Mat frame){
 }
 void InterfaceGrafica::desenharObjetos(Mat frame){
 
-float raioRobo = scale*RAIO_ROBO; //pixels
+double raioRobo = scale*RAIO_ROBO; //pixels
 
 	//Desenha jogadores
 	for(int i=0; i<3; i++){
-		float deltaX = cos(objetos[i]->orientacao)*raioRobo;
-		float deltaY = sin(objetos[i]->orientacao)*raioRobo;
+		double deltaX = cos(objetos[i]->orientacao)*raioRobo;
+		double deltaY = sin(objetos[i]->orientacao)*raioRobo;
 		line(frame, Point((int)((objetos[i]->posicao.x)*scale+LARGURA_LINHA), (int)(objetos[i]->posicao.y+BORDA_CAMPO)*scale+LARGURA_LINHA), Point((int)((objetos[i]->posicao.x)*scale+deltaX+LARGURA_LINHA), (int)((objetos[i]->posicao.y+BORDA_CAMPO)*scale+deltaY+LARGURA_LINHA)), Scalar(255, 255, 255), 2, 8, 0);
 		circle(frame, Point((int)((objetos[i]->posicao.x)*scale+LARGURA_LINHA),(int)(objetos[i]->posicao.y+BORDA_CAMPO)*scale+LARGURA_LINHA), (int)(raioRobo), Scalar(255, 255, 255), 2, 8, 0);
 	}

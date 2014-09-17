@@ -25,14 +25,14 @@ ControladorPID::~ControladorPID(void)
 *	@param pwm					Vetor de duas posicoes com o pwm: [0] -> dir, [1] -> esq
 */
 
-void ControladorPID::PID2(float xb, float yb)
+void ControladorPID::PID2(double xb, double yb)
 {
-	float xi = robo->posicao.x;
-    float yi = robo->posicao.y;
-	float phi = robo->direcao;
+	double xi = robo->posicao.x;
+    double yi = robo->posicao.y;
+	double phi = robo->direcao;
 	cout <<"Orientacao: "<< phi<<endl;
 	if (xi != xAnterior || yb != yAnterior) {
-		float phid = (atan2(abs(yb - yi), abs(xb - xi)));
+		double phid = (atan2(abs(yb - yi), abs(xb - xi)));
 
         //quadrante
         if (xi < xb && yi < yb) {
@@ -45,10 +45,10 @@ void ControladorPID::PID2(float xb, float yb)
             phid = PI - phid;
         }
 
-        float e = (phid - phi);
+        double e = (phid - phi);
         e = atan2(sin(e), cos(e));
 
-        float e2;
+        double e2;
 
         if (phi > PI)
             e2 = (phid - (phi - PI));
@@ -57,7 +57,7 @@ void ControladorPID::PID2(float xb, float yb)
 
         e2 = atan2(sin(e2), cos(e2));
         bool re = false;
-        // float r= ((float)(rand() % 10 + 1) -(float)(rand() % 10 + 1))/100;
+        // double r= ((double)(rand() % 10 + 1) -(double)(rand() % 10 + 1))/100;
 
         if (abs(e2) < abs(e)) {
             e = e2;
@@ -80,14 +80,14 @@ void ControladorPID::PID2(float xb, float yb)
 
         //            cout<<integral<<endl;
 
-        float w = 0;
+        double w = 0;
 
         if (re)
 			w = Kp * e + Ki * this->erroAcumulado + Kd * (e - this->erroAnterior);
 		else
 			w = Kp * e + Ki * this->erroAcumulado + Kd * (e - this->erroAnterior);
 
-        float v = 70; ///log10(abs(w)+2);
+        double v = 70; ///log10(abs(w)+2);
 
 
 		int vd = (int) ((2 * v + w * RAIO_ROBO) / (2 * RAIO_RODA_ROBO));
@@ -101,7 +101,7 @@ void ControladorPID::PID2(float xb, float yb)
 		if (re) {
 			double esqTemp = ve;
 			ve=-vd;
-			vd=-esqTemp;
+			vd=(int)-esqTemp;
 		}
 
 		robo->velocity_left= abs(ve)<PWM_MAX ? ve : PWM_MAX*ve/abs(ve);
@@ -131,36 +131,36 @@ void ControladorPID::execute(double anguloAtual, double anguloAlvo, double veloc
 	double Wd = (2*velocidadeLinear + RAIO_ROBO*velocidadeAngular)/(2*RAIO_RODA_ROBO);
 	double We = (2*velocidadeLinear - RAIO_ROBO*velocidadeAngular)/(2*RAIO_RODA_ROBO);
 	
-	pwm[0] = We*PWM_MAX/VEL_MAX;
-	pwm[1] = Wd*PWM_MAX/VEL_MAX;
+	pwm[0] =(int)(We*PWM_MAX/VEL_MAX);
+	pwm[1] =(int)(Wd*PWM_MAX/VEL_MAX);
 	//cout <<"Dir1 "<<pwm[0] << " Esq1 " << pwm[1]<<endl;
 }
 
 
 
 
-void ControladorPID::PID(float xb, float yb) {
+void ControladorPID::PID(double xb, double yb) {
 	
-    float xi = robo->posicao.x;
-    float yi =  robo->posicao.y;
+    double xi = robo->posicao.x;
+    double yi =  robo->posicao.y;
 	if (xi != xAnterior || yi != yAnterior) {
-		float phi =  atan2(sin(robo->orientacao), cos(robo->orientacao));
+		double phi =  atan2(sin(robo->orientacao), cos(robo->orientacao));
 		bool direcao = robo->direcao;
 
-		float phid = (atan2(yb - yi, xb - xi));
+		double phid = (atan2(yb - yi, xb - xi));
 		//cout <<"alvo: "<< phid*180/PI<<"  robo: "<< phi*180/PI<<endl;
 
 
 
-		//float dx = (xi - x_anterior) / (dt * cos(phi/100));
-		//float dy = (yi - y_anterior) / (dt * sin(phi/100));
-		//float v = (dx > dy) ? dy : dx;
+		//double dx = (xi - x_anterior) / (dt * cos(phi/100));
+		//double dy = (yi - y_anterior) / (dt * sin(phi/100));
+		//double v = (dx > dy) ? dy : dx;
 
-		float e = (phid - phi) ;
+		double e = (phid - phi) ;
 		e = atan2(sin(e), cos(e));
 		//cout <<"Erro: "<< e*180/PI<<endl;
 		//cout <<"Erro Anterior: "<< erroAnterior*180/PI<<endl;
-		float e2;
+		double e2;
 
 		if (phi > PI)
 			e2 = (phid - (phi - PI));
@@ -195,7 +195,7 @@ void ControladorPID::PID(float xb, float yb) {
 
 		//            cout<<integral<<endl;
 
-		float w = 0;
+		double w = 0;
 		double derivada = e - this->erroAnterior;
 		//cout <<"Derivada: "<< 180*derivada/PI <<endl;
 		if (re)
@@ -203,7 +203,7 @@ void ControladorPID::PID(float xb, float yb) {
 		else
 			w = Kp * e + Ki * this->erroAcumulado + Kd * (derivada);
 			//cout <<"w: "<< w<<endl;
-		float velocidadeLinear = 80; ///log10(abs(w)+2);
+		double velocidadeLinear = 80; ///log10(abs(w)+2);
 
 
 	//	//Calcula a velocidade obedecendo o limite
@@ -252,8 +252,8 @@ void ControladorPID::PID(float xb, float yb) {
 		}
 
 
-		robo->velocity_left=  We;
-		robo->velocity_right=  Wd;
+		robo->velocity_left		= (int)We;
+		robo->velocity_right	= (int)Wd;
 
 	}
 	xAnterior = xi;
@@ -315,6 +315,6 @@ void ControladorPID::pidTiaguera(pt::Point alvo, pt::Point atual, double orienta
 	double Wd = (velocidadeLinear - RAIO_ROBO*W)/(RAIO_RODA_ROBO);
 	double We = (velocidadeLinear + RAIO_ROBO*W)/(RAIO_RODA_ROBO);
 
-	robo->velocity_left =  We*PWM_MAX/VEL_MAX;
-	robo->velocity_right =  Wd*PWM_MAX/VEL_MAX;
+	robo->velocity_left =  (int)(We*PWM_MAX/VEL_MAX);
+	robo->velocity_right =  (int)(Wd*PWM_MAX/VEL_MAX);
 }

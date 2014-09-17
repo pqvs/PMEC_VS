@@ -128,16 +128,16 @@ void SerialW::enviaPWM(string *PWMs) {
 	aux[size]='@';size++;
 	for(int robos=0;robos<3;robos++){
 
-		for (int i = 0; i < PWMs[robos].length()-1; i++,size++)
+		for (unsigned int i = 0; i < PWMs[robos].length()-1; i++,size++)
 			aux[size] = PWMs[robos].at(i);
 
 
 		aux[size]=';';
-		int size_int=log10(PWMs[robos].length()) + 1;//pega o numero de digitos do inteiro
+		int size_int = (int)log10(PWMs[robos].length()) + 1;//pega o numero de digitos do inteiro
 
 		int size_aux=PWMs[robos].length();
 		size++;
-		int size_size_aux=log10(size_int) + size_int -1 + size;
+		int size_size_aux = (int)log10(size_int) + size_int -1 + size;
 		char c[2];
 		for (int i = 0; i < size_int; i++, size_aux/=10, size++,
 			size_size_aux--){
@@ -189,7 +189,7 @@ bool SerialW::estabeleceConexao() {
 
 bool SerialW::envia(string str) {
 	char *aux=new char[TAM_BUFFER_BT];
-	for (int i = 0; i < str.length(); i++)
+	for (unsigned int i = 0; i < str.length(); i++)
 		aux[i] = str.at(i);
 	aux[str.length()] = '\0';
 	if (!enviaDado(aux)) {

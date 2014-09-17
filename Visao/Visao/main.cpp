@@ -24,7 +24,6 @@ void interfaceGrafica();
 void estrategiaGoleiro();
 
 int main(int argc, char* argv[]){
-	quit = false;
 	objetos = new Objeto*[7];
 	controladores = new ControladorPID*[3];
 	thread threads[2];
@@ -38,24 +37,21 @@ int main(int argc, char* argv[]){
 		}else
 			objetos[i] = new Bola();
 	}
-
 	visao = new Visao(objetos);
 
 	threads[0] = thread(interfaceGrafica);
 	threads[1] = thread(estrategiaGoleiro);
 	visao->iniciar(); 
-
-	cout << "Antes" << endl; 
+	quit.store(true);
+ 
 	for (auto& th : threads) th.join();
-	cout << "Depois" << endl; 
 
 	return 0;
 }
 
-
 void interfaceGrafica(){
 	InterfaceGrafica *interfaceGrafica = new InterfaceGrafica(objetos);
-	interfaceGrafica->iniciar();
+	interfaceGrafica->iniciar(ref(quit));
 }
 
 void estrategiaGoleiro(){
@@ -83,8 +79,8 @@ void estrategiaGoleiro(){
 	double ganhoEsq = 1;
 	while(true){
 
-		if(kbhit()){
-			char ch = getch();
+		if(_kbhit()){
+			char ch = _getch();
 			switch(ch){
 				case VK_SPACE:
 					flag =!flag;
@@ -140,8 +136,8 @@ void estrategiaGoleiro(){
 					cout <<"ganhoEsq: "<< ganhoEsq <<endl;
 					break;
 				case '0':
-					((Robo*)objetos[0])->velocity_left = 60.0f;
-					((Robo*)objetos[0])->velocity_right = -60.0f;  
+					((Robo*)objetos[0])->velocity_left = 60;
+					((Robo*)objetos[0])->velocity_right = -60;  
 					s.send(((Robo*)objetos[0]),((Robo*)objetos[1]),((Robo*)objetos[2]));
 					cout <<"Vira..."<<endl;
 					break;

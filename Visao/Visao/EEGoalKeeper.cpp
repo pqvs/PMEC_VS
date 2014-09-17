@@ -14,7 +14,7 @@ EEGoalKeeper::EEGoalKeeper(Objeto** objetos)
 	this->lastPositions = new vector<pt::Point>(TAMANHO_HISTORICO);
 	this->lastBallPositions = new vector<pt::Point>(TAMANHO_HISTORICO);
 
-	for(int i=0; i++; i<TAMANHO_HISTORICO){
+	for(int i=0; i++; i < TAMANHO_HISTORICO){
 		this->lastPositions->at(i) = pt::Point(robotPosition.x,  robotPosition.y);
 		this->lastBallPositions->at(i) = pt::Point(ballPosition.x, ballPosition.y);
 	}
@@ -220,8 +220,8 @@ void EEGoalKeeper::evolve(int* pwm){
 	pwm[1] = this->pwm[1];
 	
 	//CORRECAO DO ERRO DO ULTIMO FRAME//
-	this->pwm[1] += (this->erroLinear - RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO);
-	this->pwm[0] += (this->erroLinear + RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO);
+	this->pwm[1] += (int)((this->erroLinear - RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO));
+	this->pwm[0] += ((int)(this->erroLinear + RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO));
 	//-------------------------------------------//
 	
 	if(abs(pwm[1])< PWM_MIN){
@@ -274,9 +274,9 @@ void EEGoalKeeper::calcErro(){
 	double tetaR = atan2(sin(this->robot->orientacao), cos(this->robot->orientacao));
 	pt::Point rPos(this->robot->posicao.x, this->robot->posicao.y);
 
-	float oriE = (expectedOri - tetaR);
+	double oriE = (expectedOri - tetaR);
 	oriE = atan2(sin(oriE), cos(oriE));
-	float oriEre;
+	double oriEre;
 
 	if (tetaR > PI)
 		oriEre = (expectedOri - (tetaR - PI));
@@ -291,7 +291,7 @@ void EEGoalKeeper::calcErro(){
 		re = true;
 	} 
 
-	float dist = distancePoints( lastPositions->at(0), lastPositions->at(1));
+	double dist = distancePoints( lastPositions->at(0), lastPositions->at(1));
 	
 	this->erroAngular = 1 * oriE;
 	this->erroLinear = 0.1 * (expectedDist-dist);
@@ -376,8 +376,8 @@ void EEGoalKeeper::applyMutation(int* child){
 	
 	double valor0 = distribution(generator);
 	double valor1 = distribution(generator);
-	child[0] += valor0;
-	child[1] += valor1;
+	child[0] += (int)valor0;
+	child[1] += (int)valor1;
 
 	if(abs(child[0])>PWM_MAX)
 		child[0] = PWM_MAX*child[0]/abs(child[0]);

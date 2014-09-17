@@ -47,7 +47,7 @@ private:
 	void setPosicoesObjetos();
 	void desenharMarcacoes();
 	void parearTags(vector<pt::Point> tagsSecundarias, vector<pt::Point> tagsPrimarias, vector<pt::Point> tagsPrimariasInimigas);
-	int verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, float range);
+	int verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, double range);
 	double distanciaPontos(pt::Point A, pt::Point B);
 	static void trackingTag(Tag* tag, Visao* instance);
 	

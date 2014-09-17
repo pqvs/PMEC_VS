@@ -5,20 +5,20 @@ class Point
 public:
 
 	Point(void);
-	Point(float x, float y);
+	Point(double x, double y);
 	//Point(Point &const point){
 	//	this->x=point.getX();
 	//	this->y=point.getY();
 	//}
     ~Point(void);
-	float getX();
-    float getY();
-    void setp(float ax, float ay);
+	double getX();
+    double getY();
+    void setp(double ax, double ay);
     void setp(Point p);
-    void setX(float x);
-    void setY(float y);
-	float x;
-    float y;
+    void setX(double x);
+    void setY(double y);
+	double x;
+    double y;
 private:
 
 };}

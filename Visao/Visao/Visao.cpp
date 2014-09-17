@@ -200,7 +200,7 @@ void Visao::criarTags(Mat src){
 	string valores[7];
     while(!txtFile.eof() && numlinha < 6){
 		char characters[30];
-		strcpy(characters,linha.c_str());
+		strcpy_s(characters,linha.c_str());
 		char* chars = strtok(characters, ";");
 		int i = 0;
 		if(chars)
@@ -236,13 +236,13 @@ void Visao::criarTrackbars(){
 	resizeWindow(trackbarWindow, 350, 400);
 
 	char TrackbarName[50];
-	sprintf( TrackbarName, "H_MIN", H_MIN);
-	sprintf( TrackbarName, "H_MAX", H_MAX);
-	sprintf( TrackbarName, "S_MIN", S_MIN);
-	sprintf( TrackbarName, "S_MAX", S_MAX);
-	sprintf( TrackbarName, "V_MIN", V_MIN);
-	sprintf( TrackbarName, "V_MAX", V_MAX);
-	sprintf( TrackbarName, "A_MIN", A_MIN);
+	sprintf_s( TrackbarName, "H_MIN", H_MIN);
+	sprintf_s( TrackbarName, "H_MAX", H_MAX);
+	sprintf_s( TrackbarName, "S_MIN", S_MIN);
+	sprintf_s( TrackbarName, "S_MAX", S_MAX);
+	sprintf_s( TrackbarName, "V_MIN", V_MIN);
+	sprintf_s( TrackbarName, "V_MAX", V_MAX);
+	sprintf_s( TrackbarName, "A_MIN", A_MIN);
 
 	// Cria a trackbar e insere na window.
 	// os 3 parâmetros são: o endereco da variavel que será mudado quando a barra é movida, o máximo valor do trackbar
@@ -287,20 +287,20 @@ void Visao::trackBarsConfigCamera(){
 	LENSBRIGHTNESS = 500;
 
 	char TrackbarName[50];
-	sprintf( TrackbarName, "auto gain", AUTO_GAIN);
-	sprintf( TrackbarName, "gain", GAIN);
-	sprintf( TrackbarName, "auto exposure", AUTO_EXPOSURE);
-	sprintf( TrackbarName, "exposure", EXPOSURE);
-	sprintf( TrackbarName, "auto balance", AUTO_WHITEBALANCE);
-	sprintf( TrackbarName, "red", WHITEBALANCE_RED);
-	sprintf( TrackbarName, "green", WHITEBALANCE_GREEN);
-	sprintf( TrackbarName, "blue", WHITEBALANCE_BLUE);
-	sprintf( TrackbarName, "hflip", HFLIP);
-	sprintf( TrackbarName, "vflip", VFLIP);
-	sprintf( TrackbarName, "lens corr.1", LENSCORRECTION1);
-	sprintf( TrackbarName, "lens corr.2", LENSCORRECTION2);
-	sprintf( TrackbarName, "lens corr.3", LENSCORRECTION3);
-	sprintf( TrackbarName, "lens brightness", LENSBRIGHTNESS);
+	sprintf_s( TrackbarName, "auto gain", AUTO_GAIN);
+	sprintf_s( TrackbarName, "gain", GAIN);
+	sprintf_s( TrackbarName, "auto exposure", AUTO_EXPOSURE);
+	sprintf_s( TrackbarName, "exposure", EXPOSURE);
+	sprintf_s( TrackbarName, "auto balance", AUTO_WHITEBALANCE);
+	sprintf_s( TrackbarName, "red", WHITEBALANCE_RED);
+	sprintf_s( TrackbarName, "green", WHITEBALANCE_GREEN);
+	sprintf_s( TrackbarName, "blue", WHITEBALANCE_BLUE);
+	sprintf_s( TrackbarName, "hflip", HFLIP);
+	sprintf_s( TrackbarName, "vflip", VFLIP);
+	sprintf_s( TrackbarName, "lens corr.1", LENSCORRECTION1);
+	sprintf_s( TrackbarName, "lens corr.2", LENSCORRECTION2);
+	sprintf_s( TrackbarName, "lens corr.3", LENSCORRECTION3);
+	sprintf_s( TrackbarName, "lens brightness", LENSBRIGHTNESS);
 
 
 	// Cria a trackbar e insere na window.
@@ -334,7 +334,14 @@ void Visao::inRangeThreshold(Mat src){
 
 	uchar *srcData = src.data;
 
-	float R, G, B, min, H, S, V, delta;
+	double R = 0; 
+	double G = 0; 
+	double B = 0; 
+	double min = 0; 
+	double H = 0; 
+	double S = 0; 
+	double V = 0; 
+	double delta = 0; 
 	int linhaInicial = campoTop.x, linhaFinal = campoBottom.x, colunaInicial=campoTop.y, colunaFinal = campoBottom.y;
 
 	
@@ -403,8 +410,8 @@ void Visao::trackingTag(Tag* tag, Visao* instance){
 				double area = moment.m00;
 				//Se a área do objeto for muito pequena então provavelmente deve ser apenas ruído.
 				if(area >= tag->A_MIN){
-					x = moment.m10/area;
-					y = moment.m01/area;
+					x = (int)(moment.m10/area);
+					y = (int)(moment.m01/area);
 					posicoes->push_back(pt::Point(x,y));
 					j++;
 				}
@@ -423,13 +430,13 @@ void Visao::filtroMedianaBackProject(int numeroVizinhos, Tag*tag){
 	uchar *data = srcMat.data;
 	int delta = 15;
 	bool taDentro;
-	float media;
+	double media;
 	for(int j = colunaInicial; j < colunaFinal; j++){
 		size_t val = FRAME_WIDTH*j;
 		for(int i = linhaInicial; i < linhaFinal; i++){
 			taDentro = false;
 			media=0;
-			for(int idxPosicao=0; idxPosicao<tag->posicoes->size();  idxPosicao++){
+			for(unsigned int idxPosicao = 0; idxPosicao < tag->posicoes->size();  idxPosicao++){
 				if(j<tag->posicoes->at(idxPosicao).x+delta && j>tag->posicoes->at(idxPosicao).x-delta && i<tag->posicoes->at(idxPosicao).y+delta && i>tag->posicoes->at(idxPosicao).y-delta){
 					taDentro = true;
 					break;
@@ -476,8 +483,8 @@ void Visao::iniciarTracking(){
 }
 
 void Visao::setPosicoesObjetos(){
-	float scaleX = (COMPRIMENTO_CAMPO+2*BORDA_CAMPO)/(campoBottom.x - campoTop.x);
-	float scaleY = LARGURA_CAMPO/(campoBottom.y - campoTop.y);
+	double scaleX = (COMPRIMENTO_CAMPO+2*BORDA_CAMPO)/(campoBottom.x - campoTop.x);
+	double scaleY = LARGURA_CAMPO/(campoBottom.y - campoTop.y);
 	pt::Point cTag;
 	int tagPar;
 	bool pareado = false;
@@ -499,9 +506,9 @@ void Visao::setPosicoesObjetos(){
 			}
 		}else if(tag[i]->posicoes->size() > 1){
 
-			float maxPairRange = 20;
+			double maxPairRange = 20;
 
-			for(int iTag = 0; iTag<tag[i]->posicoes->size(); iTag++){
+			for(unsigned int iTag = 0; iTag<tag[i]->posicoes->size(); iTag++){
 
 				vector<Point> closerTags, enemyPrimaryCloserTags, enemySecundaryCloserTags;
 				int closerTag = verifyCloserPoint(tag[i]->posicoes->at(iTag), *tag[0]->posicoes, maxPairRange);
@@ -511,8 +518,8 @@ void Visao::setPosicoesObjetos(){
 
 					if(closerEnemyTag >= 0){
 
-						float distanciaPrimaria = distanciaPontos(tag[i]->posicoes->at(iTag),tag[0]->posicoes->at(closerTag));
-						float distanciaInimiga = distanciaPontos(tag[i]->posicoes->at(iTag),tag[5]->posicoes->at(closerEnemyTag));
+						double distanciaPrimaria = distanciaPontos(tag[i]->posicoes->at(iTag),tag[0]->posicoes->at(closerTag));
+						double distanciaInimiga = distanciaPontos(tag[i]->posicoes->at(iTag),tag[5]->posicoes->at(closerEnemyTag));
 				
 			
 						if(distanciaPrimaria<distanciaInimiga){
@@ -564,7 +571,7 @@ void Visao::setPosicoesObjetos(){
 	if(tag[4]->posicoes->size() > 0)
 		this->objetos[3]->posicao.setp((tag[4]->posicoes->at(0).x - campoTop.x)*scaleX, (tag[4]->posicoes->at(0).y - campoTop.y)*scaleY);
 	
-	for(int i = 0, j = 4; i < tag[5]->posicoes->size(); i++, j++){
+	for(unsigned int i = 0, j = 4; i < tag[5]->posicoes->size(); i++, j++){
 		this->objetos[j]->posicao.setp((tag[5]->posicoes->at(i).x - campoTop.x)*scaleX,(tag[5]->posicoes->at(i).y-campoTop.y)*scaleY);
 	}
 }
@@ -574,7 +581,7 @@ void Visao::setPosicoesObjetos(){
 /*
 *	Retorna o indice no vetor vecPoints do ponto mais proximo
 */
-int Visao::verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, float range){
+int Visao::verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, double range){
 	
 		if(range<0)
 			range = FLT_MAX;
@@ -583,16 +590,17 @@ int Visao::verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, float
 		int numberPoints = vecPoints.size();
 
 		//x and y position from the primary point
-		int xPrimary = point.x, yPrimary = point.y;
+		int xPrimary = (int)point.x;
+		int yPrimary = (int)point.y;
 		
 		//distance from the closer secundary point
-		float closerDitancePoint = FLT_MAX;
+		double closerDitancePoint = FLT_MAX;
 		
 		//Get the closer secundary point
 		for(int j=0; j<numberPoints; j++){
 			pt::Point secundaryPoint = vecPoints.at(j);
 			//Distance from the primary point to the secundary point
-			float distance = distanciaPontos(secundaryPoint, point);
+			double distance = distanciaPontos(secundaryPoint, point);
 	
 			//Verify if is on the range
 			if(distance<range){
@@ -612,7 +620,7 @@ double Visao::distanciaPontos(pt::Point A, pt::Point B){
 
 void Visao::calculoHSV(Mat srcMat){
 	//Pula area sem interessse
-	float R, G, B, min, H, S, V, delta;
+	double R, G, B, min, H, S, V, delta;
 	int linhaInicial = campoTop.x, linhaFinal = campoBottom.x, colunaInicial=campoTop.y, colunaFinal = campoBottom.y;
 
 	for(int i = colunaInicial; i < colunaFinal; i++){
@@ -722,22 +730,22 @@ void Visao::eventoCalibrar(){
 
 void Visao::desenharMarcacoes(){
 	for(int i = 0; i < 6; i++){
-		for(int j = 0; j < tag[i]->posicoes->size(); j++){			
-			cv::Point point(tag[i]->posicoes->at(j).x,tag[i]->posicoes->at(j).y);
+		for(unsigned int j = 0; j < tag[i]->posicoes->size(); j++){			
+			cv::Point point((int)tag[i]->posicoes->at(j).x,(int)tag[i]->posicoes->at(j).y);
 			circle(frame,point, 3, Scalar(0,0,255));
 		}
 
 	}
 	
-	float scaleX = (campoBottom.x - campoTop.x)/(COMPRIMENTO_CAMPO+2*BORDA_CAMPO);
-	float scaleY = (campoBottom.y - campoTop.y)/LARGURA_CAMPO;
+	double scaleX = (campoBottom.x - campoTop.x)/(COMPRIMENTO_CAMPO+2*BORDA_CAMPO);
+	double scaleY = (campoBottom.y - campoTop.y)/LARGURA_CAMPO;
 
 	//Desenha os jogadores
 	for(int i=0; i<3; i++){
-		Point posicao(this->objetos[i]->posicao.x*scaleX + campoTop.x, this->objetos[i]->posicao.y*scaleY + campoTop.y);
-		float deltaX = cos(objetos[i]->orientacao)*14;
-		float deltaY = sin(objetos[i]->orientacao)*14;
-		line(frame, posicao, Point(posicao.x+deltaX, posicao.y+deltaY), Scalar(255, 255, 255), 2, 8, 0);
+		Point posicao((int)(this->objetos[i]->posicao.x*scaleX + campoTop.x), (int)(this->objetos[i]->posicao.y*scaleY + campoTop.y));
+		double deltaX = cos(objetos[i]->orientacao)*14;
+		double deltaY = sin(objetos[i]->orientacao)*14;
+		line(frame, posicao, Point((int)(posicao.x+deltaX), (int)(posicao.y+deltaY)), Scalar(255, 255, 255), 2, 8, 0);
 		circle(frame, posicao, 14, Scalar(255, 255, 255), 1, 8, 0);
 	}
 
