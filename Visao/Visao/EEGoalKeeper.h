@@ -16,7 +16,7 @@ private:
 			distanceGoalkeeper, distanceAllie0, distanceAllie1,
 			distanceCloserEnemie, distanceFromGoal, 
 			expectedOri, expectedDist, robotExpectedSpeed,
-			yFinalBall, erroAngular, erroLinear;
+			yFinalBall, erroAngular, erroLinear,sumErroLinear,sumErroAngular;
 	pt::Point expectedRobotPos, futureBallPos;
 	vector<pt::Point> *lastPositions, *lastBallPositions;
 	int positiveMutations, totalMutations, *pwm;

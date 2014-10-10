@@ -8,7 +8,7 @@
 #include "stdafx.h"
 #include "TimerCounter.h"
 TimerCounter::TimerCounter() {
-    this->CounterStart = (__int64)0.0;
+    this->CounterStart = 0.0;
     this->PCFreq = 0.0;
 }
 

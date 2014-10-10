@@ -110,8 +110,8 @@ void EstrategiaGoleiro::predicaoDaBola(void){
 			deltaSBY = ballPosition.y-medianaYAntiga[((int)metadeHist/2)];
 	double vbx = deltaSBX*1000/(TAMANHO_HISTORICO*TEMPO_FRAME), vby = deltaSBY*1000/(TAMANHO_HISTORICO*TEMPO_FRAME);
 	
-	bola->orientacao	= atan2(deltaSBY,deltaSBX);
-	bola->velocity		= sqrt(pow(vbx, 2) + pow(vby, 2));
+	bola->orientacao = atan2(deltaSBY,deltaSBX);
+	bola->velocity = sqrt(pow(vbx, 2) + pow(vby, 2));
 
 	if(bola->orientacao <0 && bola->orientacao>=-PI/2)
 		bola->orientacao+=PI;

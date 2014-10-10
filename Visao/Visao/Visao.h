@@ -31,7 +31,8 @@ class Visao{
 public:
 	Visao(Objeto **objetos);
 	~Visao(void);
-	void iniciar();	
+	void iniciar();
+	
 
 private:
 	bool modoCalibracao;
@@ -47,7 +48,7 @@ private:
 	void setPosicoesObjetos();
 	void desenharMarcacoes();
 	void parearTags(vector<pt::Point> tagsSecundarias, vector<pt::Point> tagsPrimarias, vector<pt::Point> tagsPrimariasInimigas);
-	int verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, double range);
+	int verifyCloserPoint(pt::Point point, vector<pt::Point> vecPoints, float range);
 	double distanciaPontos(pt::Point A, pt::Point B);
 	static void trackingTag(Tag* tag, Visao* instance);
 	
@@ -59,32 +60,28 @@ private:
 	Point campoBottom;
 	Objeto **objetos;
 
-	// Accurate Counter
 	void StartCounter();
 	double GetCounter();
 
 
 	//Calibração Câmera
-
 	// camera sensor parameters
-	int AUTO_GAIN;				// [false; true]
+	int AUTO_GAIN;			// [false; true]
 	int GAIN;					// [0; 79]
-	int AUTO_EXPOSURE;			// [false; true]
+	int AUTO_EXPOSURE;		// [false; true]
 	int EXPOSURE;				// [0; 511]
-	int AUTO_WHITEBALANCE;		// [false; true]
+	int AUTO_WHITEBALANCE;	// [false; true]
 	int WHITEBALANCE_RED;		// [0; 255]
-	int WHITEBALANCE_GREEN;		// [0; 255]
-	int WHITEBALANCE_BLUE;		// [0; 255]
-
+	int WHITEBALANCE_GREEN;	// [0; 255]
+	int WHITEBALANCE_BLUE;	// [0; 255]
 	// camera linear transform parameters (valid for MONO_PROCESSED; COLOR_PROCESSED modes)
-	int HFLIP;					// [false; true]
-	int VFLIP;					// [false; true]
-
+	int HFLIP;				// [false; true]
+	int VFLIP;				// [false; true]
 	// camera non-linear transform parameters (valid for MONO_PROCESSED; COLOR_PROCESSED modes)
 	int LENSCORRECTION1;		// [-500; 500]
 	int LENSCORRECTION2;		// [-500; 500]
 	int LENSCORRECTION3;		// [-500; 500]
-	int LENSBRIGHTNESS; 		// [-500; 500]
+	int LENSBRIGHTNESS; 	// [-500; 500]
 };
 
 

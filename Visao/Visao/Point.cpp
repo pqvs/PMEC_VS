@@ -6,26 +6,26 @@ pt::Point::Point() {
 pt::Point::~Point() {
 }
 
-pt::Point::Point(double x, double y) {
+pt::Point::Point(float x, float y) {
     this->x = x;
     this->y = y;
 }
 
-double pt::Point::getX() {
+float pt::Point::getX() {
     return this->x;
 }
 
-double pt::Point::getY() {
+float pt::Point::getY() {
     return this->y;
 }
 
-void pt::Point::setX(double x){
+void pt::Point::setX(float x){
     this->x=x;
 }
-void pt::Point::setY(double y){
+void pt::Point::setY(float y){
     this->y=y;
 }
-void pt::Point::setp(double ax, double ay) {
+void pt::Point::setp(float ax, float ay) {
     this->x = ax;
     this->y = ay;
 }

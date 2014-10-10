@@ -128,16 +128,16 @@ void SerialW::enviaPWM(string *PWMs) {
 	aux[size]='@';size++;
 	for(int robos=0;robos<3;robos++){
 
-		for (unsigned int i = 0; i < PWMs[robos].length()-1; i++,size++)
+		for (int i = 0; i < PWMs[robos].length()-1; i++,size++)
 			aux[size] = PWMs[robos].at(i);
 
 
 		aux[size]=';';
-		int size_int = (int)log10(PWMs[robos].length()) + 1;//pega o numero de digitos do inteiro
+		int size_int=log10(PWMs[robos].length()) + 1;//pega o numero de digitos do inteiro
 
 		int size_aux=PWMs[robos].length();
 		size++;
-		int size_size_aux = (int)log10(size_int) + size_int -1 + size;
+		int size_size_aux=log10(size_int) + size_int -1 + size;
 		char c[2];
 		for (int i = 0; i < size_int; i++, size_aux/=10, size++,
 			size_size_aux--){
@@ -149,6 +149,7 @@ void SerialW::enviaPWM(string *PWMs) {
 	}
 	
 	aux[size] = '#';
+	//cout<<aux<<endl;
 	//while(1){
 		//Sleep(1);
 		if (!enviaDado(aux)) {
@@ -164,13 +165,13 @@ void SerialW::send(Robo *robo_0, Robo *robo_1, Robo *robo_2){
 
 	string PWMs[3];
 	stringstream msg_sst;
-	msg_sst<<robo_0->velocity_right<<";"<<robo_0->velocity_left<<";"<<10<<";";
+	msg_sst<<robo_0->velocity_right<<";"<<robo_0->velocity_left<<";"<<50<<";";
 	PWMs[0]=msg_sst.str();
 	msg_sst.str(std::string());
-	msg_sst<<robo_1->velocity_right<<";"<<robo_1->velocity_left<<";"<<10<<";";
+	msg_sst<<robo_1->velocity_right<<";"<<robo_1->velocity_left<<";"<<50<<";";
 	PWMs[1]=msg_sst.str();
 	msg_sst.str(std::string());
-	msg_sst<<robo_2->velocity_right<<";"<<robo_2->velocity_left<<";"<<10<<";";
+	msg_sst<<robo_2->velocity_right<<";"<<robo_2->velocity_left<<";"<<50<<";";
 	PWMs[2]=msg_sst.str();
 	msg_sst.str(std::string());
 	this->enviaPWM(PWMs);
@@ -189,7 +190,7 @@ bool SerialW::estabeleceConexao() {
 
 bool SerialW::envia(string str) {
 	char *aux=new char[TAM_BUFFER_BT];
-	for (unsigned int i = 0; i < str.length(); i++)
+	for (int i = 0; i < str.length(); i++)
 		aux[i] = str.at(i);
 	aux[str.length()] = '\0';
 	if (!enviaDado(aux)) {

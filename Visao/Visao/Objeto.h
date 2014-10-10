@@ -4,7 +4,7 @@ class Objeto
 {
 public:
 	Objeto(void);
-	Objeto(pt::Point p,double orientacao);
+	Objeto(pt::Point p,float orientacao);
 	Objeto(Objeto&const o){
 		this->posicao=o.posicao;
 		this->orientacao=o.orientacao;
@@ -12,6 +12,6 @@ public:
 	~Objeto(void);
 
 	pt::Point posicao;
-	double orientacao; //Angulo entre 0 a 2pi
+	float orientacao; //Angulo entre 0 a 2pi
 };
 

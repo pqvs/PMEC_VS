@@ -8,7 +8,7 @@ Objeto::Objeto(void)
 	this->orientacao=0;
 }
 
-Objeto::Objeto(pt::Point p,double orientacao)
+Objeto::Objeto(pt::Point p,float orientacao)
 {
 	this->posicao=p;
 	this->orientacao=orientacao;

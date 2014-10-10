@@ -1,44 +1,45 @@
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\VISAO.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\TIMERCOUNTER.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\TAG.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\STDAFX.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\SERIALW.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\ROBO.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\POINT.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\OBJETO.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\MAIN.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\INTERFACEGRAFICA.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\ESTRATEGIAGOLEIRO.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\EEGOALKEEPER.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\CONTROLADORPID.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\BOLA.OBJ
-C:\GIT\PMEC_VS\VISAO\VISAO\RELEASE\VC110.PDB
-C:\GIT\PMEC_VS\VISAO\RELEASE\VISAO.EXE
-C:\GIT\PMEC_VS\VISAO\RELEASE\VISAO.PDB
-C:\GIT\PMEC_VS\Visao\Visao\Release\Bola.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\ControladorPID.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\EEGoalKeeper.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\EstrategiaGoleiro.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\InterfaceGrafica.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\main.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\Objeto.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\Point.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\Robo.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\SerialW.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\stdafx.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\Tag.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\TimerCounter.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\Visao.obj
-C:\GIT\PMEC_VS\Visao\Visao\Release\cl.command.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\CL.read.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\CL.write.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link-cvtres.read.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link-cvtres.write.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link-rc.read.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link-rc.write.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link.command.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link.read.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\link.write.1.tlog
-C:\GIT\PMEC_VS\Visao\Visao\Release\vc110.pdb
-C:\GIT\PMEC_VS\Visao\Release\Visao.pdb
-C:\GIT\PMEC_VS\Visao\Release\Visao.exe
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\VISAO.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\TIMERCOUNTER.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\TAG.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\STDAFX.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\SERIALW.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\ROBO.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\POINT.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\OBJETO.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\MAIN.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\INTERFACEGRAFICA.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\ESTRATEGIAGOLEIRO.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\EEGOALKEEPER.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\CONTROLADORPID.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\BOLA.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CÓDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\VC110.PDB
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CÓDIGOS COMPARTILHADOS\VS2014\VISAO\VISAO\RELEASE\MAIN.OBJ
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CóDIGOS COMPARTILHADOS\VS2014\VISAO\RELEASE\VISAO.EXE
+C:\USERS\PEQUI - VERY SMALL\DROPBOX\CÓDIGOS COMPARTILHADOS\VS2014\VISAO\RELEASE\VISAO.PDB
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\Bola.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\ControladorPID.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\EEGoalKeeper.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\EstrategiaGoleiro.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\InterfaceGrafica.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\main.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\Objeto.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\Point.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\Robo.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\SerialW.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\stdafx.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\Tag.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\TimerCounter.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\Visao.obj
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\cl.command.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\CL.read.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\CL.write.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link-cvtres.read.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link-cvtres.write.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link-rc.read.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link-rc.write.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link.command.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link.read.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\link.write.1.tlog
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Release\vc110.pdb
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Release\Visao.pdb
+C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Release\Visao.exe

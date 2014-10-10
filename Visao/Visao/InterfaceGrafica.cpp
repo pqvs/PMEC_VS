@@ -1,5 +1,6 @@
 #include "InterfaceGrafica.h"
 
+
 #define PI 3.14159265
 #define COMPRIMENTO_CAMPO 148 //cm
 #define LARGURA_CAMPO 127 //cm
@@ -11,11 +12,14 @@
 #define TAMANHO_HISTORICO 20 //u
 #define TEMPO_FRAME 13 // ms
 
+using namespace std;
+
 const int FRAME_WIDTH = 640;
 const int FRAME_HEIGHT = 480;
-const double scale = FRAME_HEIGHT/(LARGURA_CAMPO); //pixels por cm
+const float scale = FRAME_HEIGHT/(LARGURA_CAMPO); //pixels por cm
 
-InterfaceGrafica::InterfaceGrafica(Objeto** objetos){
+InterfaceGrafica::InterfaceGrafica(Objeto** objetos)
+{
 	this->objetos = objetos;
 	Objeto* ball = this->objetos[3];
 	pt::Point ballPosition = ball->posicao;
@@ -29,10 +33,14 @@ InterfaceGrafica::InterfaceGrafica(Objeto** objetos){
 }
 
 
-InterfaceGrafica::~InterfaceGrafica(void){}
+InterfaceGrafica::~InterfaceGrafica(void)
+{
+}
 
-void InterfaceGrafica::iniciar(atomic<bool>& quit){
-	while(quit.load() == false){
+
+
+void InterfaceGrafica::iniciar(void){
+	while(1){
 		Mat frame(FRAME_HEIGHT, FRAME_WIDTH, CV_8UC3, Scalar(0,0,0));
 		
 		desenharCampo(frame); 
@@ -43,7 +51,6 @@ void InterfaceGrafica::iniciar(atomic<bool>& quit){
 		waitKey(10);
 	}
 }
-
 void InterfaceGrafica::desenharCampo(Mat frame){
 	
 	
@@ -73,12 +80,12 @@ void InterfaceGrafica::desenharCampo(Mat frame){
 }
 void InterfaceGrafica::desenharObjetos(Mat frame){
 
-double raioRobo = scale*RAIO_ROBO; //pixels
+float raioRobo = scale*RAIO_ROBO; //pixels
 
 	//Desenha jogadores
 	for(int i=0; i<3; i++){
-		double deltaX = cos(objetos[i]->orientacao)*raioRobo;
-		double deltaY = sin(objetos[i]->orientacao)*raioRobo;
+		float deltaX = cos(objetos[i]->orientacao)*raioRobo;
+		float deltaY = sin(objetos[i]->orientacao)*raioRobo;
 		line(frame, Point((int)((objetos[i]->posicao.x)*scale+LARGURA_LINHA), (int)(objetos[i]->posicao.y+BORDA_CAMPO)*scale+LARGURA_LINHA), Point((int)((objetos[i]->posicao.x)*scale+deltaX+LARGURA_LINHA), (int)((objetos[i]->posicao.y+BORDA_CAMPO)*scale+deltaY+LARGURA_LINHA)), Scalar(255, 255, 255), 2, 8, 0);
 		circle(frame, Point((int)((objetos[i]->posicao.x)*scale+LARGURA_LINHA),(int)(objetos[i]->posicao.y+BORDA_CAMPO)*scale+LARGURA_LINHA), (int)(raioRobo), Scalar(255, 255, 255), 2, 8, 0);
 	}
