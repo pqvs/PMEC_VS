@@ -230,8 +230,8 @@ void ControladorPID::PID(float xb, float yb) {
 	//	//w = (w/abs(w))*RAIO_RODA_ROBO*(We-Wd)/(2*RAIO_ROBO);*/
 		
 	//	//Calcula velocidade angular das rodas mantendo os sinais
-	double 	Wd = (velocidadeLinear + RAIO_ROBO*w)/(RAIO_RODA_ROBO);
-	double We = (velocidadeLinear - RAIO_ROBO*w)/(RAIO_RODA_ROBO);
+	double 	Wd = (velocidadeLinear - RAIO_ROBO*w)/(RAIO_RODA_ROBO);
+	double We = (velocidadeLinear + RAIO_ROBO*w)/(RAIO_RODA_ROBO);
 
 		Wd *= 255/32;
 		We *= 255/32;

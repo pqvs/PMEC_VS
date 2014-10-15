@@ -165,13 +165,30 @@ void SerialW::send(Robo *robo_0, Robo *robo_1, Robo *robo_2){
 
 	string PWMs[3];
 	stringstream msg_sst;
-	msg_sst<<robo_0->velocity_right<<";"<<robo_0->velocity_left<<";"<<50<<";";
+	msg_sst<<robo_0->velocity_right<<";"<<robo_0->velocity_left<<";"<<20<<";";
 	PWMs[0]=msg_sst.str();
 	msg_sst.str(std::string());
-	msg_sst<<robo_1->velocity_right<<";"<<robo_1->velocity_left<<";"<<50<<";";
+	msg_sst<<robo_1->velocity_right<<";"<<robo_1->velocity_left<<";"<<20<<";";
 	PWMs[1]=msg_sst.str();
 	msg_sst.str(std::string());
-	msg_sst<<robo_2->velocity_right<<";"<<robo_2->velocity_left<<";"<<50<<";";
+	msg_sst<<robo_2->velocity_right<<";"<<robo_2->velocity_left<<";"<<20<<";";
+	PWMs[2]=msg_sst.str();
+	msg_sst.str(std::string());
+	//cout<<PWMs[0]<<endl;
+	this->enviaPWM(PWMs);
+}
+
+void SerialW::send(Robo *robo_0, Robo *robo_1, Robo *robo_2,int t0, int t1, int t2){
+
+	string PWMs[3];
+	stringstream msg_sst;
+	msg_sst<<robo_0->velocity_right<<";"<<robo_0->velocity_left<<";"<<t0<<";";
+	PWMs[0]=msg_sst.str();
+	msg_sst.str(std::string());
+	msg_sst<<robo_1->velocity_right<<";"<<robo_1->velocity_left<<";"<<t1<<";";
+	PWMs[1]=msg_sst.str();
+	msg_sst.str(std::string());
+	msg_sst<<robo_2->velocity_right<<";"<<robo_2->velocity_left<<";"<<t2<<";";
 	PWMs[2]=msg_sst.str();
 	msg_sst.str(std::string());
 	this->enviaPWM(PWMs);

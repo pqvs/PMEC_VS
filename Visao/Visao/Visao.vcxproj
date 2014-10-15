@@ -82,10 +82,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bell.cpp" />
     <ClCompile Include="Bola.cpp" />
     <ClCompile Include="ControladorPID.cpp" />
+    <ClCompile Include="DeFuzzy.cpp" />
     <ClCompile Include="EEGoalKeeper.cpp" />
+    <ClCompile Include="EEMidForward.cpp" />
     <ClCompile Include="EstrategiaGoleiro.cpp" />
+    <ClCompile Include="FuzzyFunction.cpp" />
+    <ClCompile Include="FuzzyVD.cpp" />
+    <ClCompile Include="FuzzyVE.cpp" />
+    <ClCompile Include="FuzzyVS2014.cpp" />
     <ClCompile Include="InterfaceGrafica.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Objeto.cpp" />
@@ -95,24 +102,45 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Tag.cpp" />
     <ClCompile Include="TimerCounter.cpp" />
+    <ClCompile Include="Trapez.cpp" />
+    <ClCompile Include="VDRules.cpp" />
+    <ClCompile Include="VERules.cpp" />
     <ClCompile Include="Visao.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseRule.h" />
     <ClInclude Include="Bola.h" />
     <ClInclude Include="ControladorPID.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="DeFuzzy.h" />
     <ClInclude Include="EEGoalKeeper.h" />
+    <ClInclude Include="EEMidForward.h" />
     <ClInclude Include="EstrategiaGoleiro.h" />
+    <ClInclude Include="Fuzzy.h" />
+    <ClInclude Include="FuzzyFunction.h" />
+    <ClInclude Include="FuzzyVD.h" />
+    <ClInclude Include="FuzzyVE.h" />
+    <ClInclude Include="FuzzyVS2014.h" />
     <ClInclude Include="InterfaceGrafica.h" />
     <ClInclude Include="Objeto.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Robo.h" />
     <ClInclude Include="SerialW.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimerCounter.h" />
+    <ClInclude Include="VDRules.h" />
+    <ClInclude Include="VERules.h" />
     <ClInclude Include="Visao.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Rule_Base_VD.txt" />
+    <Text Include="Rule_Base_VE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Visao.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

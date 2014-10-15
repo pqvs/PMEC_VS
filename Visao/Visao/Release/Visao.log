@@ -1,37 +1,61 @@
-﻿Build started 09/10/2014 15:35:59.
-     1>Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Visao.vcxproj" on node 2 (Build target(s)).
+﻿Build started 15/10/2014 17:01:16.
+     1>Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Visao\Visao.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Include" /IC:\opencv248\opencv\build\include\opencv /IC:\opencv248\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ControladorPID.cpp main.cpp
-         ControladorPID.cpp
-     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
-     1>ControladorPID.cpp(86): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>ControladorPID.cpp(88): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>ControladorPID.cpp(104): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>ControladorPID.cpp(134): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>ControladorPID.cpp(135): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>ControladorPID.cpp(206): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>ControladorPID.cpp(208): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>ControladorPID.cpp(259): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>ControladorPID.cpp(260): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>ControladorPID.cpp(326): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>ControladorPID.cpp(327): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Include" /IC:\opencv248\opencv\build\include\opencv /IC:\opencv248\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\opencv248\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
-     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
-     1>main.cpp(55): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>main.cpp(27): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>main.cpp(80): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(81): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(84): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(85): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(50): warning C4101: 've' : unreferenced local variable
+     1>main.cpp(51): warning C4101: 'vd' : unreferenced local variable
+     1>main.cpp(133): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(133) : see declaration of 'kbhit'
-     1>main.cpp(56): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+     1>main.cpp(135): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(131) : see declaration of 'getch'
-     1>main.cpp(125): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(126): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(131): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(132): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(147): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>main.cpp(151): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>main.cpp(155): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>main.cpp(159): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>main.cpp(163): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>main.cpp(167): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>main.cpp(208): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(209): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(214): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(215): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(216): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(217): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(218): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(219): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(224): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(225): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(226): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(227): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(228): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(229): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(234): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(235): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(236): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(237): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(238): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(239): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Release\Visao.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv248\opencv\build\x86\vc11\lib opencv_core248.lib opencv_imgproc248.lib opencv_highgui248.lib opencv_ml248.lib opencv_video248.lib opencv_features2d248.lib opencv_calib3d248.lib opencv_objdetect248.lib opencv_contrib248.lib opencv_legacy248.lib opencv_flann248.lib "C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Lib\CLEyeMulticam.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Release\Visao.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Release\Visao.lib" /MACHINE:X86 /SAFESEH Release\Bola.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv248\opencv\build\x86\vc11\lib opencv_core248.lib opencv_imgproc248.lib opencv_highgui248.lib opencv_ml248.lib opencv_video248.lib opencv_features2d248.lib opencv_calib3d248.lib opencv_objdetect248.lib opencv_contrib248.lib opencv_legacy248.lib opencv_flann248.lib "C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Lib\CLEyeMulticam.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.lib" /MACHINE:X86 /SAFESEH Release\Visao.res
+         Release\Bell.obj
+         Release\Bola.obj
          Release\ControladorPID.obj
+         Release\DeFuzzy.obj
          Release\EEGoalKeeper.obj
+         Release\EEMidForward.obj
          Release\EstrategiaGoleiro.obj
+         Release\FuzzyFunction.obj
+         Release\FuzzyVD.obj
+         Release\FuzzyVE.obj
+         Release\FuzzyVS2014.obj
          Release\InterfaceGrafica.obj
          Release\main.obj
          Release\Objeto.obj
@@ -41,12 +65,15 @@
          Release\stdafx.obj
          Release\Tag.obj
          Release\TimerCounter.obj
+         Release\Trapez.obj
+         Release\VDRules.obj
+         Release\VERules.obj
          Release\Visao.obj
          Generating code
          Finished generating code
-         Visao.vcxproj -> C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Release\Visao.exe
-     1>Done Building Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao\Visao\Visao.vcxproj" (Build target(s)).
+         Visao.vcxproj -> C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.exe
+     1>Done Building Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Visao\Visao.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.35
+Time Elapsed 00:00:03.51

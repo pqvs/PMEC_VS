@@ -39,6 +39,7 @@ TimerCounter t;
 	DCB dcb;
 	COMMTIMEOUTS CommTimeouts;
 	void send(Robo *robo_0, Robo *robo_1, Robo *robo_2);
+	void send(Robo *robo_0, Robo *robo_1, Robo *robo_2,int t0, int t1, int t2);
 	const string SERIAL_PORT;
 	const string parada;
 	bool envia(string str);

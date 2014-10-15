@@ -185,7 +185,7 @@ void EEGoalKeeper::predicaoDaBola(void){
 
 void EEGoalKeeper::evolve(int* pwm){
 	//Atualiza o erro da ultima iteracao
-	calcErro();
+	//calcErro();
 	//Atualiza as variáveis
 	updateVars();
 
@@ -196,7 +196,7 @@ void EEGoalKeeper::evolve(int* pwm){
 	positiveMutations = 0;
 	this->sigma = 0.9*PWM_MAX;
 
-	for(int g=0; g<800; g++){
+	for(int g=0; g<300; g++){
 		child[0] = this->pwm[0];
 		child[1] = this->pwm[1];
 		applyMutation(child);
@@ -220,8 +220,8 @@ void EEGoalKeeper::evolve(int* pwm){
 	pwm[1] = this->pwm[1];
 	
 	//CORRECAO DO ERRO DO ULTIMO FRAME//
-	this->pwm[1] += (this->erroLinear - RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO);
-	this->pwm[0] += (this->erroLinear + RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO);
+	//this->pwm[1] += (this->erroLinear - RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO);
+	//this->pwm[0] += (this->erroLinear + RAIO_ROBO*this->erroAngular)/(RAIO_RODA_ROBO);
 	//-------------------------------------------//
 	
 	if(abs(pwm[1])< PWM_MIN){
@@ -254,14 +254,18 @@ void EEGoalKeeper::calcExpected(int pwm[2]){
 	tetaR = atan2(sin(tetaR), cos(tetaR));
 
 	robotExpectedSpeed = abs(RAIO_RODA_ROBO*(pwm[0]+pwm[1])*VEL_MAX_FRAME/(2*PWM_MAX));
-	rPos.y += RAIO_RODA_ROBO*(pwm[0]+pwm[1])*sin(tetaR)*VEL_MAX_FRAME/(2*PWM_MAX);
-    rPos.x += RAIO_RODA_ROBO*(pwm[0]+pwm[1])*cos(tetaR)*VEL_MAX_FRAME/(2*PWM_MAX);
+   rPos.y += RAIO_RODA_ROBO*(pwm[0]+pwm[1])*sin(tetaR)*VEL_MAX_FRAME/(2*PWM_MAX);
+   rPos.x += RAIO_RODA_ROBO*(pwm[0]+pwm[1])*cos(tetaR)*VEL_MAX_FRAME/(2*PWM_MAX);
+
+	//rPos.y += RAIO_RODA_ROBO*(pwm[0]+pwm[1])*sin(tetaR)*32/(2*TEMPO_FRAME*PWM_MAX);
+   // rPos.x += RAIO_RODA_ROBO*(pwm[0]+pwm[1])*cos(tetaR)*32/(2*TEMPO_FRAME*PWM_MAX);
+
 	//Bater na parede
-	if((rPos.x < BORDA_CAMPO+LARGURA_LINHA+RAIO_ROBO && (rPos.y > (LARGURA_CAMPO-TAMANHO_GOL)/2 + TAMANHO_GOL || rPos.y < (LARGURA_CAMPO-TAMANHO_GOL)/2))){
+	/*if((rPos.x < BORDA_CAMPO+LARGURA_LINHA+RAIO_ROBO && (rPos.y > (LARGURA_CAMPO-TAMANHO_GOL)/2 + TAMANHO_GOL || rPos.y < (LARGURA_CAMPO-TAMANHO_GOL)/2))){
 		expectedRobotPos.x = BORDA_CAMPO+LARGURA_LINHA+RAIO_ROBO ;	
-	}else{
+	}else{*/
 		expectedRobotPos.x = rPos.x;
-	}
+	//}
 	expectedRobotPos.y = rPos.y;
 	expectedOri = tetaR;
 	expectedDist = distancePoints(rPos,  this->robot->posicao);
@@ -315,63 +319,68 @@ double  EEGoalKeeper::evaluateFitness(int* child){
 	calcExpected(child);
 	
 	//Verifica se deve seguir o y caso longe ou parar na trajetoria da bola
-	double yoBall = (distanceGoalkeeper<30) ? this->yFinalBall : this->futureBallPos.y;
+	//double yoBall = (distanceGoalkeeper<30) ? this->yFinalBall : this->futureBallPos.y;
+	double yoBall= this->ball->posicao.y;
 
 	if(yoBall<(LARGURA_CAMPO-TAMANHO_GOL)/2)
 		yoBall = (LARGURA_CAMPO-TAMANHO_GOL)/2;
 
 	if(yoBall > (LARGURA_CAMPO-TAMANHO_GOL)/2 + TAMANHO_GOL)
 		yoBall = (LARGURA_CAMPO-TAMANHO_GOL)/2 + TAMANHO_GOL;
-
 	
 	double distanceYo = EEGoalKeeper::distancePoints(expectedRobotPos, pt::Point(BORDA_CAMPO+RAIO_ROBO+LARGURA_LINHA,yoBall));
-	double childFitness = 1000/pow(distanceYo, 2);
-	//double childFitness = 1/distanceYo;
-	double deltaGolY = 10, deltaGolX = 20;
-
-	//Evitar de afastar do gol no X
-	if(expectedRobotPos.x > BORDA_CAMPO+deltaGolX +LARGURA_LINHA){
-		childFitness-=abs(50*(expectedRobotPos.x-BORDA_CAMPO+deltaGolX +LARGURA_LINHA));
-	}else if((expectedRobotPos.x < BORDA_CAMPO+LARGURA_LINHA)){
-		childFitness-=abs(1000*(expectedRobotPos.x-BORDA_CAMPO-LARGURA_LINHA));	
-	}
+	//double childFitness = 1/pow(distanceYo, 1);
+	double childFitness = 100*pow(sin(expectedOri), 2)/(1+pow(distanceYo, 2));
 	
-	//Evitar de afastar do gol no Y
-	if(expectedRobotPos.y > (LARGURA_CAMPO-TAMANHO_GOL)/2 + TAMANHO_GOL+deltaGolY){
-		childFitness-= abs(50*(expectedRobotPos.y-(LARGURA_CAMPO-TAMANHO_GOL)/2-TAMANHO_GOL-deltaGolY));
-	}else if (expectedRobotPos.y<(LARGURA_CAMPO-TAMANHO_GOL)/2-deltaGolY){
-		childFitness-= abs(50*(expectedRobotPos.y-(LARGURA_CAMPO-TAMANHO_GOL)/2+deltaGolY));
-	}
+	//cout<<expectedOri*180/PI<<" "<<distanceYo<<endl;
+	
+	
+	//double childFitness = 1/distanceYo;
+	//double deltaGolY = 10, deltaGolX = 20;
+
+	////Evitar de afastar do gol no X
+	//if(expectedRobotPos.x > BORDA_CAMPO+deltaGolX +LARGURA_LINHA){
+	//	childFitness-=abs(50*(expectedRobotPos.x-BORDA_CAMPO+deltaGolX +LARGURA_LINHA));
+	//}else if((expectedRobotPos.x < BORDA_CAMPO+LARGURA_LINHA)){
+	//	childFitness-=abs(1000*(expectedRobotPos.x-BORDA_CAMPO-LARGURA_LINHA));	
+	//}
+	//
+	////Evitar de afastar do gol no Y
+	//if(expectedRobotPos.y > (LARGURA_CAMPO-TAMANHO_GOL)/2 + TAMANHO_GOL+deltaGolY){
+	//	childFitness-= abs(50*(expectedRobotPos.y-(LARGURA_CAMPO-TAMANHO_GOL)/2-TAMANHO_GOL-deltaGolY));
+	//}else if (expectedRobotPos.y<(LARGURA_CAMPO-TAMANHO_GOL)/2-deltaGolY){
+	//	childFitness-= abs(50*(expectedRobotPos.y-(LARGURA_CAMPO-TAMANHO_GOL)/2+deltaGolY));
+	//}
 
 	//SITUACAO DE PERIGO DE GOL
-	if(this->distanceFromGoal <30){
-		//Antecipar a bola
-		if(distanceGoalkeeper  < distanceCloserEnemie){
-			
-			// Sai do gol apenas se a bola estiver vindo para o gol
-			double antecipFitness = 10000*(-cos(ballOrientation));
-			
-			//Quanto mais perto do goleiro melhor sair do gol
-			antecipFitness /= pow(distanceGoalkeeper, 4);
+	//if(this->distanceFromGoal <30){
+	//	//Antecipar a bola
+	//	if(distanceGoalkeeper  < distanceCloserEnemie){
+	//		
+	//		// Sai do gol apenas se a bola estiver vindo para o gol
+	//		double antecipFitness = 10000*(-cos(ballOrientation));
+	//		
+	//		//Quanto mais perto do goleiro melhor sair do gol
+	//		antecipFitness /= pow(distanceGoalkeeper, 4);
 
-			//Quanto mais perto for a posicao goleiro da posicao futura da bola melhor
-			antecipFitness /= pow(EEGoalKeeper::distancePoints(rPos, futureBallPos), 4);
+	//		//Quanto mais perto for a posicao goleiro da posicao futura da bola melhor
+	//		antecipFitness /= pow(EEGoalKeeper::distancePoints(rPos, futureBallPos), 4);
 
-			childFitness+=antecipFitness;
-		}
+	//		childFitness+=antecipFitness;
+	//	}
 
-		if(distanceGoalkeeper<9){
-			//Girar para chutar a bola
-			childFitness *= pow(1+abs(child[0]-child[1]), 2);
-		}
-	}else{
+	//	if(distanceGoalkeeper<9){
+	//		//Girar para chutar a bola
+	//		childFitness *= pow(1+abs(child[0]-child[1]), 2);
+	//	}
+	//}else{
 		//Manter angulo reto quando seguindo o y da bola
-		childFitness *= pow(sin(expectedOri), 2);
+		//childFitness *= pow(sin(expectedOri), 2);
 
 		//Nao girar parado na posicao
-		childFitness /= pow(1+abs(child[0]-child[1]), 0.5);
+		//childFitness /= pow(1+abs(child[0]-child[1]), 0.5);
 
-	}
+	//}
 	//------------------------------------------------------//
 
 	
