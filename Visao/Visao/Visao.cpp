@@ -260,22 +260,40 @@ void Visao::trackBarsConfigCamera(){
 	string trackbarWindow = "Trackbars Câmera";
 	//cria window para trackbars
 	namedWindow(trackbarWindow,0);
-	resizeWindow(trackbarWindow, 350, 400);
-	
-	AUTO_GAIN = 0;
-	GAIN = 0;
-	AUTO_EXPOSURE = 0;
-	EXPOSURE = 200;
-	AUTO_WHITEBALANCE = 1;
-	WHITEBALANCE_RED = 0;
-	WHITEBALANCE_GREEN = 0;
-	WHITEBALANCE_BLUE = 0;
-	HFLIP = 1;
-	VFLIP = 1;
-	LENSCORRECTION1 = 500;
-	LENSCORRECTION2 = 500;
-	LENSCORRECTION3 = 500;
-	LENSBRIGHTNESS = 500;
+	resizeWindow(trackbarWindow, 350, 400);	
+		
+	ifstream txtFile;
+    string linha ;
+    txtFile.open("cfg_cam.txt");
+	getline(txtFile, linha);	
+	AUTO_GAIN			= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	GAIN				= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	AUTO_EXPOSURE		= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	EXPOSURE			= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	AUTO_WHITEBALANCE	= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	WHITEBALANCE_RED	= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	WHITEBALANCE_GREEN	= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	WHITEBALANCE_BLUE	= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	HFLIP				= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	VFLIP				= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	LENSCORRECTION1		= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	LENSCORRECTION2		= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	LENSCORRECTION3		= (int)atoi(linha.c_str());
+	getline(txtFile, linha);	
+	LENSBRIGHTNESS		= (int)atoi(linha.c_str());
+    txtFile.close();
 
 	char TrackbarName[50];
 	sprintf( TrackbarName, "auto gain", AUTO_GAIN);
@@ -311,6 +329,9 @@ void Visao::trackBarsConfigCamera(){
 	createTrackbar( "lens corr.2", trackbarWindow, &LENSCORRECTION2, 1000);
 	createTrackbar( "lens corr.3", trackbarWindow, &LENSCORRECTION3, 1000);
 	createTrackbar( "lens brightness", trackbarWindow, &LENSBRIGHTNESS, 1000);
+
+
+
 }
 
 
@@ -696,6 +717,24 @@ void Visao::eventoCalibrar(){
 					txtFile<<tag[i]->H_MIN<<";"<<tag[i]->H_MAX<<";"<<tag[i]->S_MIN<<";"<<tag[i]->S_MAX<<";"<<tag[i]->V_MIN<<";"<<tag[i]->V_MAX<<";"<<tag[i]->A_MIN<<"\n";
 				}
 				txtFile.close();
+
+				txtFile.open("cfg_cam.txt");
+				txtFile << AUTO_GAIN << endl;
+				txtFile << GAIN << endl;
+				txtFile << AUTO_EXPOSURE << endl;
+				txtFile << EXPOSURE << endl;
+				txtFile << AUTO_WHITEBALANCE << endl;
+				txtFile << WHITEBALANCE_RED << endl;
+				txtFile << WHITEBALANCE_GREEN << endl;
+				txtFile << WHITEBALANCE_BLUE << endl;
+				txtFile << HFLIP << endl;
+				txtFile << VFLIP << endl;
+				txtFile << LENSCORRECTION1 << endl;
+				txtFile << LENSCORRECTION2 << endl;
+				txtFile << LENSCORRECTION3 << endl;
+				txtFile << LENSBRIGHTNESS << endl;
+				txtFile.close();
+
 				txtFile.open("configcampo.txt");
 				txtFile<<campoTop.x<<endl;
 				txtFile<<campoTop.y<<endl;

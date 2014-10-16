@@ -3,14 +3,14 @@
 #define PI 3.14159265f
 #define CI 1.12f
 #define CD 0.82f
-#define PWM_MAX 50
+#define PWM_MAX 80
 #define PWM_MIN 0
 #define TEMPO_FRAME 13
-#define COMPRIMENTO_CAMPO 148.0f //cm
-#define LARGURA_CAMPO 127.0f //cm
+#define COMPRIMENTO_CAMPO 150.0f //cm
+#define LARGURA_CAMPO 130.0f //cm
 #define BORDA_CAMPO 10.0f //cm
 #define RAIO_ROBO (7.5f/2) //cm
-#define TAMANHO_GOL 37.0f //cm
+#define TAMANHO_GOL 40.0f //cm
 #define TAMANHO_HISTORICO 20 // u
 #define VEL_MAX 32.0f // cm/s
 #define VEL_MAX_FRAME 2.0f // cm/frame

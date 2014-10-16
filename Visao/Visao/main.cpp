@@ -11,7 +11,7 @@
 #include "Robo.h"
 #include "FuzzyVS2014.h"
 #include "EEMidForward.h"
-
+#include <math.h>
 //bool re=false;
 double pcFreq = 0.0;
 __int64 counterstart = 0;
@@ -34,26 +34,25 @@ void interfaceGrafica(){
 }
 
 
-void robot_controller(Robo *player){
+void robot_controller(Robo *player,Bola *ball){
 	Robo*robo=player;
-	
+
 	while(true){
 
 		while (robo->ready) { 
-			
-		//cout<<robo->id<<" is stuck "<<robo->ready<<endl;
-		std::this_thread::yield(); }      // wait for the ready signal
+
+			//cout<<robo->id<<" is stuck "<<robo->ready<<endl;
+			std::this_thread::yield(); }      // wait for the ready signal
 		//cout<<robo->id<<" is stuck"<<endl;
 		float xr=robo->posicao.x;
 		float yr=robo->posicao.y;
 		float angulorobo=robo->orientacao;
-		int ve;
-		int vd;
-		
+
+
 		float Ot=atan2((robo->target.y-yr),(robo->target.x-xr));
 		float dist=sqrt(pow((robo->target.y-yr),2)+pow((robo->target.x-xr),2));
 		Ot=atan2(sin(angulorobo-Ot),cos(angulorobo-Ot));
-		
+
 		if(Ot>=-PI/2 && Ot<=PI/2){
 			robo->re=false;
 		}
@@ -65,15 +64,16 @@ void robot_controller(Robo *player){
 
 		Ot=-Ot*180/PI;
 		if(robo->id==0)
-		cout<<robo->id<<" id "<<Ot<<" Ot"<<endl;
+			cout<<robo->id<<" id "<<Ot<<" Ot"<<endl;
 		//conversão de centimetros para milimetros
 		dist*=10;
-		
+
 		//bool check=robo->checa_batida();
 		//cout<<"check : "<<check<<endl;
 		if(!robo->checa_batida()){
-		
-			vector<float> velocidades = fuzzyController[0]->ControladorFuzzy(Ot,dist);//velocidades[0]=esquerda velocidades[1]=direita
+
+
+			vector<float> velocidades = fuzzyController[0]->ControladorFuzzy(Ot,100);//velocidades[0]=esquerda velocidades[1]=direita
 
 
 			if (robo->re){
@@ -84,39 +84,148 @@ void robot_controller(Robo *player){
 				robo->velocity_left=(velocidades[0]*kd+40);
 				robo->velocity_right=(velocidades[1]*kp+40);
 			}	
+		}else{
+
+			if(sqrt(pow(robo->posicao.x-ball->posicao.x,2)+pow(robo->posicao.y-ball->posicao.y,2))<=10)
+			{
+				int aux = ((double)rand()/RAND_MAX) > 0.5;
+				robo->velocity_left=robo->girand*120;
+				robo->velocity_right=-robo->velocity_left;
+
+			}else{
+				if(robo->re){
+					robo->velocity_left=60;
+					robo->velocity_right=60;
+				}//colocar as velocidade para o caso do robo bater de ré
+				else{
+					robo->velocity_left=-60;
+					robo->velocity_right=-60;
+				}
+			}
+
 		}
+
+
 		robo->ready=true;
-	
-		
-		}
+
+
+	}
 }
 
-void estrategiaGoleiro(){
-	SerialW s= SerialW("\\\\.\\COM30");
-	Robo* goalkeeper = ((Robo*)objetos[0]);
-	Robo* ojuara = ((Robo*)objetos[1]);
-	Robo* lenhador = ((Robo*)objetos[2]);
-	Bola* bola = ((Bola*)objetos[3]);
-	goalkeeper->id=0;
-	ojuara->id=1;
-	lenhador->id=2;
+
+
+void decisionMaker(Robo *player, Bola *ball){
+	float distancia_bola=sqrt(pow(player->posicao.x-ball->posicao.x,2)+pow(player->posicao.y-ball->posicao.y,2));
+	float angulo_bola=atan2((ball->posicao.y-player->posicao.y),(ball->posicao.x-player->posicao.x));		
+	angulo_bola=abs(atan2(sin(player->orientacao-angulo_bola),cos(player->orientacao-angulo_bola)));
+	if(angulo_bola > PI/2)
+		angulo_bola = PI - angulo_bola;
 	
-	std::cout << "Spawning robot controllers threads...\n";
-	std::thread t1 (robot_controller,goalkeeper);
-	std::thread t2 (robot_controller,ojuara);
-	std::thread t3 (robot_controller,lenhador);
-	std::cout << "Done spawning threads. Now waiting for them to join:\n";
+	if(player->posicao.x < 30 && player->posicao.y > LARGURA_CAMPO/2-TAMANHO_GOL/2-5 && player->posicao.y < LARGURA_CAMPO/2+TAMANHO_GOL/2+5){
+		player->target.setX(player->posicao.x+5);
+		player->target.setY(player->posicao.y);
+	}else{
+		if(player->posicao.x < ball->posicao.x - 2){
+			if(ball->posicao.x < 20 && ball->posicao.x > COMPRIMENTO_CAMPO-20 && ball->posicao.y < 20 && ball->posicao.y > LARGURA_CAMPO-20){
+				if(distancia_bola<=8){
+					//Posse de bola garantida
+					if(angulo_bola < PI/4){
+						player->target.setX(COMPRIMENTO_CAMPO);
+						player->target.setY(LARGURA_CAMPO/2);
+					}else{
+						player->target.setX(ball->posicao.x-10);
+						player->target.setY(ball->posicao.y);
+					}
+				}else{
+					player->target.setX(ball->posicao.x-5);
+					player->target.setY(ball->posicao.y);
+				}
+			}else{
+				player->target.setX(ball->posicao.x);
+				player->target.setY(ball->posicao.y);
+			}
+		}else{
+			if(ball->posicao.x > 20){
+				if(player->posicao.y > ball->posicao.y){
+					player->target.setX(ball->posicao.x-10);
+					player->target.setY(ball->posicao.y+10);
+				}else{
+					player->target.setX(ball->posicao.x-10);
+					player->target.setY(ball->posicao.y-10);
+				}
+			}else{
+				player->target.setX(ball->posicao.x);
+				player->target.setY(ball->posicao.y);
+			}
+		}
+	}
 
-	getchar();
-	//EEGoalKeeper eeGoalkeeper(objetos);
-	//EEMidForward eeOjuara(objetos);
-	EstrategiaGoleiro estGol(goalkeeper, bola);
+}
 
+
+
+
+
+
+
+
+void gk_controller(Robo *gk){
+	EEGoalKeeper eeGoalkeeper(objetos);
 	int*pwmGoalkeeper = new int[2];
 	pwmGoalkeeper[0] = 0;
 	pwmGoalkeeper[1] = 0;
+	while(true){
+
+		while (gk->ready) { 
+
+			std::this_thread::yield();
+		}
+
+		//if(!gk->checa_batida()){
+		eeGoalkeeper.evolve(pwmGoalkeeper);
+		gk->velocity_left = abs(pwmGoalkeeper[0])<PWM_MAX ? pwmGoalkeeper[0] :   PWM_MAX*pwmGoalkeeper[0]/abs(pwmGoalkeeper[0]);
+		gk->velocity_right = abs(pwmGoalkeeper[1])<PWM_MAX ? pwmGoalkeeper[1] : PWM_MAX*pwmGoalkeeper[1]/abs(pwmGoalkeeper[1]);
+		if(gk->velocity_left!=0)
+			gk->velocity_left = 0.5*(abs(gk->velocity_left)/gk->velocity_left)*(abs(gk->velocity_left)+30);
+		if(gk->velocity_right!=0)
+			gk->velocity_right = 0.5*(abs(gk->velocity_right)/gk->velocity_right)*(abs(gk->velocity_right)+30);
+
+		//cout<<"VE : "<<gk->velocity_left <<" -  VD : "<<gk->velocity_right <<endl;
+
+		gk->ready=true;
+	}
+}
+
+void Coach(){
+
+	SerialW s= SerialW("\\\\.\\COM30");
+
+	Robo* goalkeeper = ((Robo*)objetos[0]);
+
+	Robo* ojuara = ((Robo*)objetos[1]);
+
+	Robo* lenhador = ((Robo*)objetos[2]);
+
+	Bola* bola = ((Bola*)objetos[3]);
+
+	goalkeeper->id=0;
+	ojuara->id=1;
+	lenhador->id=2;
+
+	std::cout << "Spawning robot controllers threads...\n";
+	std::thread t1 (gk_controller,goalkeeper);
+	std::thread t2 (robot_controller,ojuara,bola);
+	std::thread t3 (robot_controller,lenhador,bola);
+	std::cout << "Done spawning threads. Now waiting for them to join:\n";
+
+	getchar();
+	//
+	//EEMidForward eeOjuara(objetos);
+	//EstrategiaGoleiro estGol(goalkeeper, bola);
+
+
 	bool flag=false;
-	
+
 
 	//ojuara->velocity_left=0;
 	//ojuara->velocity_right=0;
@@ -128,8 +237,8 @@ void estrategiaGoleiro(){
 	double ganhoEsq = 1;
 	float i=0;
 	while(true){
-		goalkeeper->histFeed(goalkeeper->posicao.x,goalkeeper->posicao.y);
-
+		lenhador->histFeed(lenhador->posicao.x,lenhador->posicao.y);
+		ojuara->histFeed(ojuara->posicao.x,ojuara->posicao.y);
 		if(kbhit()){//regula cosntantes PID
 
 			char ch = getch();
@@ -180,22 +289,7 @@ void estrategiaGoleiro(){
 				}
 
 				break;
-			case 'q':
-				pwmGoalkeeper[0]++;
-				cout <<"pwmGoalkeeper esq: "<< pwmGoalkeeper[0] <<endl;
-				break;
-			case 'w':
-				pwmGoalkeeper[0]--;
-				cout <<"pwmGoalkeeper esq: "<< pwmGoalkeeper[0] <<endl;
-				break;
-			case 'e':
-				pwmGoalkeeper[1]++;
-				cout <<"pwmGoalkeeper dir: "<< pwmGoalkeeper[1] <<endl;
-				break;
-			case 'r':
-				pwmGoalkeeper[1]--;
-				cout <<"pwmGoalkeeper dir: "<< pwmGoalkeeper[1] <<endl;
-				break;
+
 				/*	case '7':
 				ganhoEsq+=0.1;
 				cout <<"ganhoEsq: "<< ganhoEsq <<endl;
@@ -248,25 +342,21 @@ void estrategiaGoleiro(){
 		if(flag){
 			//bola->posicao.setX(xcirc);
 			//bola->posicao.setY(ycirc);
-			goalkeeper->target.setp(bola->posicao);
-			
-			//cout<<goalkeeper->target.x<<"  "<<goalkeeper->target.y<<endl;
-			
+			//lenhador->target.setp(bola->posicao);
+			if(lenhador->conta_decisao())
+				decisionMaker(lenhador,bola);
+
+			cout<<lenhador->target.x<<"  "<<lenhador->target.y<<endl;
+
 			////não é o melhor jeito, mas vamos testar pra ver no que dá.
-		//	eeOjuara.evolve(pwmGoalkeeper);
-			//eeGoalkeeper.evolve(pwmGoalkeeper);
-		//goalkeeper->velocity_left = abs(pwmGoalkeeper[0])<PWM_MAX ? pwmGoalkeeper[0] :   PWM_MAX*pwmGoalkeeper[0]/abs(pwmGoalkeeper[0]);
-		//goalkeeper->velocity_right = abs(pwmGoalkeeper[1])<PWM_MAX ? pwmGoalkeeper[1] : PWM_MAX*pwmGoalkeeper[1]/abs(pwmGoalkeeper[1]);
-		
+			//	eeOjuara.evolve(pwmGoalkeeper);
+			//
+
 			//cout<<"VE1 : "<<goalkeeper->velocity_left <<" -  VD1 : "<<goalkeeper->velocity_right <<endl;
 
-			//if(goalkeeper->velocity_left!=0)
-			//	goalkeeper->velocity_left = kp*(abs(goalkeeper->velocity_left)/goalkeeper->velocity_left)*(abs(goalkeeper->velocity_left)+30);
-		//	if(goalkeeper->velocity_right!=0)
-			//	goalkeeper->velocity_right = kd*(abs(goalkeeper->velocity_right)/goalkeeper->velocity_right)*(abs(goalkeeper->velocity_right)+30);
-			//cout<<"VE : "<<goalkeeper->velocity_left <<" -  VD : "<<goalkeeper->velocity_right <<endl;
-			
-		
+
+
+
 			goalkeeper->ready=false;//reseta as flags de controle
 			ojuara->ready=false;
 			lenhador->ready=false;
@@ -274,15 +364,15 @@ void estrategiaGoleiro(){
 			while((!goalkeeper->ready
 				&& !ojuara->ready
 				&& !lenhador->ready)){
-					
-					
+
+
 					//esperar todos os robos acabarem
 					//cout<<goalkeeper->id<<" is stuck "<<goalkeeper->ready<<endl;
 
 			}
-			
+
 			s.send(goalkeeper,ojuara,lenhador);
-			Sleep(10);
+			Sleep(5);
 		}	
 
 
@@ -290,7 +380,7 @@ void estrategiaGoleiro(){
 	t1.join();
 	t2.join();
 	t3.join();
-	
+
 	//std::cout << "All threads joined!\n";
 }
 
@@ -311,7 +401,7 @@ int main(int argc, char* argv[]){
 	Visao *visao = new Visao(objetos);
 
 	thread interfaceGrafica(interfaceGrafica);
-	thread estrategiaGoleiro(estrategiaGoleiro);
+	thread Coach(Coach);
 	visao->iniciar(); 
 
 

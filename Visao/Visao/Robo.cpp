@@ -10,8 +10,10 @@ Robo::Robo(const int id): id(id),Objeto()
 	lastPos=0;
 	this->stuck=false;
 	this->count_checa_batida=NUMBER_OF_CHECA_BATIDA;
+	this->count_decisao=NUMBER_DECISAO;
 	this->re=false;
 	this->ready=true;
+	this->girand=1;
 
 }
 void Robo::histFeed(float px,float py){
@@ -35,6 +37,15 @@ void Robo::histWipe(){
 
 }
 
+bool Robo::conta_decisao(){
+	if(count_decisao > 0){
+		count_decisao--;
+		return false;
+	}
+	count_decisao = NUMBER_DECISAO;
+	return true;
+}
+
 bool Robo::checa_batida(){
 	//std::cout<<" count_checa_batida : "<<this->count_checa_batida<<std::endl;
 	if(this->count_checa_batida>0&&this->count_checa_batida<NUMBER_OF_CHECA_BATIDA){
@@ -44,18 +55,19 @@ bool Robo::checa_batida(){
 	else { 
 		if(this->is_Stuck()){
 			this->count_checa_batida--;
+			
 			//cout<<"To preso carai"<<"    -   result : "<< goalkeeper->result<<endl;
-			if(this->re){
-				this->velocity_left=60;
-				this->velocity_right=60;
+			//if(this->re){
+			//	this->velocity_left=60;
+			//	this->velocity_right=60;
 
 
-			}//colocar as velocidade para o caso do robo bater de ré
-			else{
-				this->velocity_left=-60;
-				this->velocity_right=-60;
+			//}//colocar as velocidade para o caso do robo bater de ré
+			//else{
+			//	this->velocity_left=-60;
+			//	this->velocity_right=-60;
 
-			}//colocar as velocidade para o caso do robo bater de frente
+			//}//colocar as velocidade para o caso do robo bater de frente
 
 			//goalkeeper->velocity_left = -ve/abs(ve)*80;
 			//goalkeeper->velocity_right = -vd/abs(vd)*60;
@@ -63,6 +75,7 @@ bool Robo::checa_batida(){
 			return true;
 		}else{
 			this->count_checa_batida=NUMBER_OF_CHECA_BATIDA;
+			this->girand=-this->girand;
 			return false;
 		}
 	}

@@ -1,7 +1,156 @@
-﻿Build started 15/10/2014 17:01:16.
+﻿Build started 15/10/2014 21:27:39.
      1>Project "C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Visao\Visao.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Include" /IC:\opencv248\opencv\build\include\opencv /IC:\opencv248\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Include" /IC:\opencv248\opencv\build\include\opencv /IC:\opencv248\opencv\build\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ControladorPID.cpp EEGoalKeeper.cpp EEMidForward.cpp EstrategiaGoleiro.cpp Robo.cpp SerialW.cpp Visao.cpp main.cpp
+         ControladorPID.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>ControladorPID.cpp(86): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>ControladorPID.cpp(88): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>ControladorPID.cpp(104): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>ControladorPID.cpp(134): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>ControladorPID.cpp(135): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>ControladorPID.cpp(206): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>ControladorPID.cpp(208): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>ControladorPID.cpp(259): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>ControladorPID.cpp(260): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>ControladorPID.cpp(326): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>ControladorPID.cpp(327): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         EEGoalKeeper.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>EEGoalKeeper.cpp(17): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>EEGoalKeeper.cpp(161): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(162): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(180): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(181): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(257): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(258): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(281): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(286): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(288): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(299): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(331): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>EEGoalKeeper.cpp(395): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>EEGoalKeeper.cpp(396): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+         EEMidForward.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>EEMidForward.cpp(18): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>EEMidForward.cpp(97): warning C4101: 'erro' : unreferenced local variable
+     1>EEMidForward.cpp(170): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>EEMidForward.cpp(191): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(196): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(200): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(204): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(272): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(273): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(274): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(275): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(309): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>EEMidForward.cpp(313): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>EEMidForward.cpp(319): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>EEMidForward.cpp(320): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>EEMidForward.cpp(323): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(324): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>EEMidForward.cpp(405): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>EEMidForward.cpp(406): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>EEMidForward.cpp(425): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>EEMidForward.cpp(430): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEMidForward.cpp(432): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EEMidForward.cpp(442): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>EEMidForward.cpp(499): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>EEMidForward.cpp(500): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+         EstrategiaGoleiro.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>EstrategiaGoleiro.cpp(11): warning C4552: '<' : operator has no effect; expected operator with side-effect
+     1>EstrategiaGoleiro.cpp(36): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>EstrategiaGoleiro.cpp(104): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EstrategiaGoleiro.cpp(105): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EstrategiaGoleiro.cpp(113): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>EstrategiaGoleiro.cpp(114): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Robo.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+         SerialW.cpp
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>SerialW.cpp(131): warning C4018: '<' : signed/unsigned mismatch
+     1>SerialW.cpp(136): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>SerialW.cpp(140): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>SerialW.cpp(210): warning C4018: '<' : signed/unsigned mismatch
+         Visao.cpp
+     1>c:\opencv248\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
+     1>c:\users\pequi - very small\dropbox\códigos compartilhados\vs2014\visao_teste\visao\Objeto.h(8): warning C4227: anachronism used : qualifiers on reference are ignored
+     1>Visao.cpp(145): warning C4244: 'initializing' : conversion from 'int64' to 'double', possible loss of data
+     1>Visao.cpp(194): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
+     1>Visao.cpp(195): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>Visao.cpp(201): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>Visao.cpp(230): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(231): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(232): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(233): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(234): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(235): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(236): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(299): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(300): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(301): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(302): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(303): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(304): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(305): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(306): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(307): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(308): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(309): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(310): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(311): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(312): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>Visao.cpp(349): warning C4101: 'H' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'min' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'S' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'V' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'B' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'R' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'delta' : unreferenced local variable
+     1>Visao.cpp(349): warning C4101: 'G' : unreferenced local variable
+     1>Visao.cpp(422): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Visao.cpp(423): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Visao.cpp(424): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Visao.cpp(448): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(522): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(532): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(533): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(577): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(579): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(585): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(604): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(613): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Visao.cpp(761): warning C4018: '<' : signed/unsigned mismatch
+     1>Visao.cpp(762): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(776): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>Visao.cpp(779): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
          main.cpp
      1>c:\opencv248\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
@@ -11,38 +160,38 @@
      1>main.cpp(81): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
      1>main.cpp(84): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
      1>main.cpp(85): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(50): warning C4101: 've' : unreferenced local variable
-     1>main.cpp(51): warning C4101: 'vd' : unreferenced local variable
-     1>main.cpp(133): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+     1>main.cpp(189): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>main.cpp(191): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>main.cpp(242): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(133) : see declaration of 'kbhit'
-     1>main.cpp(135): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+     1>main.cpp(244): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\conio.h(131) : see declaration of 'getch'
-     1>main.cpp(147): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>main.cpp(151): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>main.cpp(155): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>main.cpp(159): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>main.cpp(163): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>main.cpp(167): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>main.cpp(208): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(209): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(214): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(215): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(216): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(217): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(218): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(219): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(224): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(225): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(226): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(227): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(228): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(229): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(234): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(235): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(236): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(237): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(238): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>main.cpp(239): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(256): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>main.cpp(260): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>main.cpp(264): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>main.cpp(268): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>main.cpp(272): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>main.cpp(276): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>main.cpp(302): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(303): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(308): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(309): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(310): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(311): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(312): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(313): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(318): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(319): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(320): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(321): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(322): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(323): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(328): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(329): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(330): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(331): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(332): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(333): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\opencv248\opencv\build\x86\vc11\lib opencv_core248.lib opencv_imgproc248.lib opencv_highgui248.lib opencv_ml248.lib opencv_video248.lib opencv_features2d248.lib opencv_calib3d248.lib opencv_objdetect248.lib opencv_contrib248.lib opencv_legacy248.lib opencv_flann248.lib "C:\Users\Pequi - Very Small\Documents\CL-Eye Platform SDK\Lib\CLEyeMulticam.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Pequi - Very Small\Dropbox\Códigos Compartilhados\VS2014\Visao_Teste\Release\Visao.lib" /MACHINE:X86 /SAFESEH Release\Visao.res
          Release\Bell.obj
@@ -76,4 +225,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.51
+Time Elapsed 00:00:07.15
